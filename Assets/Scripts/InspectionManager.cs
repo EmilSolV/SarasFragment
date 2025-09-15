@@ -1,5 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
+using UnityEngine.UI;
+
 
 public class InspectionManager : MonoBehaviour
 {
@@ -33,9 +36,64 @@ public class InspectionManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            StartCoroutine(FadeAndReturn());
+            SceneTransitionionData.comingFromInspection = true;
             SceneManager.LoadScene("Tercerapersonacam", LoadSceneMode.Single);
         }
+
     }
+
+    IEnumerator FadeAndReturn()
+    {
+        SceneTransitionionData.comingFromInspection = true;
+        GameObject fadeCanvas = GameObject.Find("FadeCanvas");
+        if (fadeCanvas != null)
+        {
+            Image fadeimage = fadeCanvas.GetComponent<SceneFader>().fadeImage;
+            float t = 0f;
+            float duration = 1f;
+
+            while (t < duration)
+            {
+                t += Time.deltaTime;
+                fadeimage.color = new Color(0, 0, 0, t / duration);
+                yield return null;
+            }
+
+
+
+        }
+
+        yield return new WaitForSeconds(0.2f);
+
+        SceneManager.LoadScene("tercerapersonacam");
+            
+     
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
+
 
 
