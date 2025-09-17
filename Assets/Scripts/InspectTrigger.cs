@@ -18,7 +18,7 @@ public class InspectTrigger : MonoBehaviour
     //}
     //  else
     //{
-    //      Debug.LogWarning("No se asignó ningún Prefab al campo objectPrefab.");
+    //      Debug.LogWarning("No se asignï¿½ ningï¿½n Prefab al campo objectPrefab.");
     //    }
     //  }
     //}
@@ -31,7 +31,7 @@ public class InspectTrigger : MonoBehaviour
             {
                 PlayerReturnData.returnPosition = GameObject.FindWithTag("Player").transform.position;
                 InspectionData.objectToInspect = objectPrefab;
-                GameObject.Find("FadeCanvas").GetComponent<SceneFader>().FadeToScene("InspectScene");
+                GameObject.Find("FadeCanvas").GetComponent<SceneFader>().FadeToScene("InspectObjectScene");
             }
         }
     }

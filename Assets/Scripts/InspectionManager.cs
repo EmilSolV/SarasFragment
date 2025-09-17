@@ -38,7 +38,7 @@ public class InspectionManager : MonoBehaviour
         {
             StartCoroutine(FadeAndReturn());
             SceneTransitionionData.comingFromInspection = true;
-            SceneManager.LoadScene("Tercerapersonacam", LoadSceneMode.Single);
+            SceneManager.LoadScene("MainScene", LoadSceneMode.Single);
         }
 
     }
@@ -66,9 +66,9 @@ public class InspectionManager : MonoBehaviour
 
         yield return new WaitForSeconds(0.2f);
 
-        SceneManager.LoadScene("tercerapersonacam");
-            
-     
+        SceneManager.LoadScene("MainScene");
+
+
     }
 
 
