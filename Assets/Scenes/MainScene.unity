@@ -4670,6 +4670,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CuboInspeccionable
       objectReference: {fileID: 0}
+    - target: {fileID: 7271218472005033322, guid: 73f376268612e6741adf39f15fb877b9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7469240665984932552, guid: 73f376268612e6741adf39f15fb877b9, type: 3}
       propertyPath: m_IsTrigger
       value: 1
