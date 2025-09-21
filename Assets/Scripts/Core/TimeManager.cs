@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
-    public float loopDuration = 300f; // 5 minutos
+    public float loopDuration = 10f; 
     private float timeRemaining;
     public bool loopActive = false;
 

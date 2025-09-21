@@ -5,6 +5,7 @@ public class LoopManager : MonoBehaviour
     public int currentLoop = 1;
     public int maxLoops = 5;
     public TimeManager timeManager; // Referencia al TimeManager
+    public PlayerReturnManager playerReturnManager; // Referencia al PlayerReturnManager
 
     public void StartNewLoop()
     {
@@ -12,7 +13,13 @@ public class LoopManager : MonoBehaviour
         {
             currentLoop++;
             Debug.Log($"Iniciando loop {currentLoop}");
-            // Reinicia el entorno, objetos y puzzles aquí
+
+            // Reinicia la posición del jugador
+            PlayerReturnData.returnPosition = PlayerReturnData.initialPosition;
+            if (playerReturnManager != null)
+            {
+                playerReturnManager.MoveToReturnPosition();
+            }
 
             // Reinicia el timer
             if (timeManager != null)
@@ -23,7 +30,6 @@ public class LoopManager : MonoBehaviour
         else
         {
             Debug.Log("Se alcanzó el máximo de loops.");
-            // Aquí puedes finalizar el juego o mostrar pantalla de victoria/derrota
         }
     }
 
