@@ -31,7 +31,7 @@ public class InspectTrigger : MonoBehaviour
             {
                 PlayerReturnData.returnPosition = GameObject.FindWithTag("Player").transform.position;
                 InspectionData.objectToInspect = objectPrefab;
-                GameObject.Find("FadeCanvas").GetComponent<SceneFader>().FadeToScene("InspectObjectScene");
+                GameObject.Find("Canvas").GetComponent<SceneFader>().FadeToScene("InspectObjectScene");
             }
         }
     }
