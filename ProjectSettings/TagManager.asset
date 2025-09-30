@@ -6,11 +6,12 @@ TagManager:
   tags:
   - CinemachineTarget
   - Wall
+  - agarrable
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Grabbable
   - Water
   - UI
   - 

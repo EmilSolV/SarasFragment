@@ -21,6 +21,15 @@ public class LoopManager : MonoBehaviour
                 playerReturnManager.MoveToReturnPosition();
             }
 
+            InteractableObject[] interactables = FindObjectsOfType<InteractableObject>();
+            foreach (var obj in interactables)
+            {
+                if (obj.resetOnLoop)
+                {
+                    obj.ResetToInitial();
+                }
+            }
+
             // Reinicia el timer
             if (timeManager != null)
             {
