@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7834875188060636877
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: a89368b13fb6b0248b748386c071c011, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 8.815038
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a89368b13fb6b0248b748386c071c011, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 8.815038
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a89368b13fb6b0248b748386c071c011, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 8.815038
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a89368b13fb6b0248b748386c071c011, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.56
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a89368b13fb6b0248b748386c071c011, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.693
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a89368b13fb6b0248b748386c071c011, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.444
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a89368b13fb6b0248b748386c071c011, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.51114106
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a89368b13fb6b0248b748386c071c011, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.47486037
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a89368b13fb6b0248b748386c071c011, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.5830393
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a89368b13fb6b0248b748386c071c011, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.41630226
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a89368b13fb6b0248b748386c071c011, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 76.14
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a89368b13fb6b0248b748386c071c011, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 123.109
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a89368b13fb6b0248b748386c071c011, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 32.339
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a89368b13fb6b0248b748386c071c011, type: 3}
+      propertyPath: m_Name
+      value: PolaroidInspeccion
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a89368b13fb6b0248b748386c071c011, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6487799817341318836}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a89368b13fb6b0248b748386c071c011, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6083169278154930267}
+  m_SourcePrefab: {fileID: 100100000, guid: a89368b13fb6b0248b748386c071c011, type: 3}
+--- !u!1 &6952001642580245404 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a89368b13fb6b0248b748386c071c011, type: 3}
+  m_PrefabInstance: {fileID: 7834875188060636877}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6487799817341318836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6952001642580245404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739c76fd556f413449f28a6903d108d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InspectTrigger
+  objectPrefab: {fileID: 0}
+--- !u!65 &6083169278154930267
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6952001642580245404}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.13559523, y: 0.0006777644, z: 0.13559523}
+  m_Center: {x: 0.00000044703484, y: -0.00010165572, z: 0.00490053}

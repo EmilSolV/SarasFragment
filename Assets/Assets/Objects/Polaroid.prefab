@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8994671813046934663
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: a89368b13fb6b0248b748386c071c011, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.397
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a89368b13fb6b0248b748386c071c011, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.057
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a89368b13fb6b0248b748386c071c011, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.807
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a89368b13fb6b0248b748386c071c011, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5727936
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a89368b13fb6b0248b748386c071c011, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.66559726
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a89368b13fb6b0248b748386c071c011, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.36263034
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a89368b13fb6b0248b748386c071c011, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.3120691
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a89368b13fb6b0248b748386c071c011, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 98.570984
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a89368b13fb6b0248b748386c071c011, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a89368b13fb6b0248b748386c071c011, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -57.16501
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a89368b13fb6b0248b748386c071c011, type: 3}
+      propertyPath: m_Name
+      value: Polaroid
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a89368b13fb6b0248b748386c071c011, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4136129829378936026}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a89368b13fb6b0248b748386c071c011, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8666366225676163974}
+  m_SourcePrefab: {fileID: 100100000, guid: a89368b13fb6b0248b748386c071c011, type: 3}
+--- !u!1 &8075542964575445462 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a89368b13fb6b0248b748386c071c011, type: 3}
+  m_PrefabInstance: {fileID: 8994671813046934663}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &4136129829378936026
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8075542964575445462}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.13559523, y: 0.0006777806, z: 0.13559526}
+  m_Center: {x: -0.000000029540681, y: -0.00010165559, z: 0.0049006506}
+--- !u!114 &8666366225676163974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8075542964575445462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739c76fd556f413449f28a6903d108d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InspectTrigger
+  objectPrefab: {fileID: 6952001642580245404, guid: 49248220b0b0ec346b77827773635656, type: 3}

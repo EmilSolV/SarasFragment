@@ -14,9 +14,9 @@ TagManager:
   - Grabbable
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Slot
+  - grabLayer
+  - Book
   - 
   - 
   - 
