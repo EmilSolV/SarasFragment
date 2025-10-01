@@ -12,15 +12,28 @@ public class BookInteractor : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            TryGrabBook();
+            if (heldBook == null)
+                TryGrabBook(); // agarrar libro del mundo
+            else
+                TryPlaceBook(); // colocar libro en slot
         }
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (heldBook == null)
-                TryTakeBook();
-            else
-                TryPlaceBook();
+            TryInteract(); // mover objetos, abrir cajones, etc.
+        }
+    }
+
+    void TryInteract()
+    {
+        Ray ray = new Ray(transform.position, transform.forward);
+        if (Physics.Raycast(ray, out RaycastHit hit, interactionRange))
+        {
+            IInteractable interactable = hit.collider.GetComponent<IInteractable>();
+            if (interactable != null)
+            {
+                interactable.Interact();
+            }
         }
     }
 
@@ -54,7 +67,7 @@ public class BookInteractor : MonoBehaviour
         foreach (var hit in hits)
         {
             BookSlot slot = hit.GetComponent<BookSlot>();
-            if (slot != null && !slot.IsEmpty)
+            if (slot != null && !slot.IsEmpty())
             {
                 heldBook = slot.currentBook;
                 slot.RemoveBook();
@@ -78,7 +91,7 @@ public class BookInteractor : MonoBehaviour
         foreach (var hit in hits)
         {
             BookSlot slot = hit.GetComponent<BookSlot>();
-            if (slot != null && slot.IsEmpty)
+            if (slot != null && slot.IsEmpty())
             {
                 slot.PlaceBook(heldBook);
                 heldBook = null;

@@ -1,6 +1,11 @@
 using UnityEngine;
 public class CajonConLibro : MonoBehaviour
-{
+{ 
+           public interface IInteractable
+            {
+              void Interact();
+             }
+
     public Transform posicionAbierta;
     public Transform posicionCerrada;
     public GameObject libro;

@@ -8,6 +8,9 @@ public class BookshelfPuzzle : MonoBehaviour
     public Transform polaroidSpawnPoint;
     private bool puzzleSolved = false;
 
+
+
+
     public void CheckPuzzle()
     {
         if (puzzleSolved) return;
