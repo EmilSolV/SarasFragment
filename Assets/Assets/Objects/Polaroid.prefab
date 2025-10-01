@@ -101,4 +101,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 739c76fd556f413449f28a6903d108d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InspectTrigger
-  objectPrefab: {fileID: 919132149155446097, guid: a89368b13fb6b0248b748386c071c011, type: 3}
+  objectPrefab: {fileID: 6952001642580245404, guid: 49248220b0b0ec346b77827773635656, type: 3}
