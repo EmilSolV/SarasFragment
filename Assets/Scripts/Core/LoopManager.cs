@@ -21,12 +21,12 @@ public class LoopManager : MonoBehaviour
                 playerReturnManager.MoveToReturnPosition();
             }
 
-            InteractableObject[] interactables = FindObjectsOfType<InteractableObject>();
+            Grabbable[] interactables = FindObjectsOfType<Grabbable>();
             foreach (var obj in interactables)
             {
                 if (obj.resetOnLoop)
                 {
-                    obj.ResetToInitial();
+                    obj.ResetObject();
                 }
             }
 

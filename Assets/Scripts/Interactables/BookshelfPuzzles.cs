@@ -17,7 +17,7 @@ public class BookshelfPuzzle : MonoBehaviour
 
         for (int i = 0; i < slots.Length; i++)
         {
-            if (slots[i].currentBook == null || slots[i].currentBook.bookID != correctOrder[i])
+            if (slots[i] == null || slots[i].currentBook == null || slots[i].currentBook.bookID != correctOrder[i])
                 return;
         }
 

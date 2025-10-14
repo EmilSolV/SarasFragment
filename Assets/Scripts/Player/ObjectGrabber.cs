@@ -2,56 +2,109 @@ using UnityEngine;
 
 public class ObjectGrabber : MonoBehaviour
 {
-    public Transform handPoint;        // punto de la mano
-    public float grabRange = 2f;       // distancia máxima para agarrar
-    public LayerMask grabLayer;        // capa de objetos agarrables
+    public Transform handPoint;
+    public float grabRange = 2f;
+    public LayerMask grabLayer;
+    public LayerMask slotLayer;
 
-    private GameObject heldObject;
+    private IGrabbable heldObject;
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
             if (heldObject == null)
-            {
                 TryGrab();
-            }
             else
-            {
-                Drop();
-            }
+                TryPlaceOrDrop();
         }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            TryInteract();
+        }
+        HighlightObjectInView();
     }
 
     void TryGrab()
     {
-        // Raycast hacia adelante desde el jugador
-        Ray ray = new Ray(transform.position + Vector3.up * 1f, transform.forward);
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit, grabRange, grabLayer))
+        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+        if (Physics.Raycast(ray, out RaycastHit hit, grabRange, grabLayer))
         {
-            GameObject obj = hit.collider.gameObject;
-
-            heldObject = obj;
-            Rigidbody rb = heldObject.GetComponent<Rigidbody>();
-            if (rb != null) rb.isKinematic = true;
-
-            heldObject.transform.SetParent(handPoint);
-            heldObject.transform.localPosition = Vector3.zero;
-            heldObject.transform.localRotation = Quaternion.identity;
+            IGrabbable grabable = hit.collider.GetComponent<IGrabbable>();
+            if (grabable != null)
+            {
+                heldObject = grabable;
+                heldObject.OnGrab(handPoint);
+            }
         }
+    }
+
+    void TryPlaceOrDrop()
+    {
+        // Raycast desde el centro de la pantalla para detectar el slot que miras
+        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+        if (Physics.Raycast(ray, out RaycastHit hit, grabRange))
+        {
+            var slot = hit.collider.GetComponent<BookSlot>();
+            Book bookObj = (heldObject as MonoBehaviour) as Book; // Solo coloca si es un libro
+
+            if (slot != null && slot.IsEmpty() && bookObj != null)
+            {
+                slot.PlaceBook(bookObj);
+                heldObject = null;
+                return;
+            }
+        }
+
+        // Si no hay slot, soltar el objeto
+        Drop();
     }
 
     void Drop()
     {
         if (heldObject != null)
         {
-            Rigidbody rb = heldObject.GetComponent<Rigidbody>();
-            if (rb != null) rb.isKinematic = false;
-
-            heldObject.transform.SetParent(null);
+            heldObject.OnDrop();
             heldObject = null;
+        }
+    }
+
+    void TryInteract()
+    {
+        Ray ray = new Ray(transform.position, transform.forward);
+        if (Physics.Raycast(ray, out RaycastHit hit, grabRange))
+        {
+            IInteractable interactable = hit.collider.GetComponent<IInteractable>();
+            if (interactable != null)
+            {
+                interactable.Interact();
+            }
+        }
+    }
+
+    void HighlightObjectInView()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+        Debug.DrawRay(ray.origin, ray.direction * grabRange, Color.cyan, 0.1f);
+
+        HighlightEffect lastHighlight = null;
+
+        if (Physics.Raycast(ray, out RaycastHit hit, grabRange))
+        {
+            HighlightEffect highlight = hit.collider.GetComponent<HighlightEffect>();
+            if (highlight != null)
+            {
+                highlight.HighlightOn();
+                lastHighlight = highlight;
+            }
+        }
+
+        // Apagar el highlight en todos los demás objetos
+        foreach (var highlight in FindObjectsOfType<HighlightEffect>())
+        {
+            if (highlight != lastHighlight)
+                highlight.HighlightOff();
         }
     }
 }
