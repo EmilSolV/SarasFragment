@@ -7,9 +7,12 @@ public class BookshelfPuzzle : MonoBehaviour
     public GameObject polaroidPrefab;
     public Transform polaroidSpawnPoint;
     private bool puzzleSolved = false;
+    public DoorController puertaParaDesbloquear; // Asigna en el inspector
 
-
-
+    public bool IsPuzzleSolved()
+    {
+        return puzzleSolved;
+    }
 
     public void CheckPuzzle()
     {
@@ -23,6 +26,29 @@ public class BookshelfPuzzle : MonoBehaviour
 
         puzzleSolved = true;
         SpawnPolaroid();
+
+        if (puertaParaDesbloquear != null)
+            puertaParaDesbloquear.UnlockDoor();
+
+        foreach (var slot in slots)
+        {
+            if (slot.currentBook != null)
+            {
+                slot.currentBook.SetPuzzleSolved(true);
+                // Cambia la capa del libro para que no sea agarrable
+                slot.currentBook.gameObject.layer = LayerMask.NameToLayer("Default"); // O la capa que prefieras
+            }
+        }
+    }
+
+    public void ResetPuzzle()
+    {
+        foreach (var slot in slots)
+        {
+            if (slot != null)
+                slot.ResetSlot();
+        }
+        // Si quieres, también puedes resetear los libros aquí
     }
 
     void SpawnPolaroid()

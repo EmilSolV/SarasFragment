@@ -16,9 +16,9 @@ public class DoorInteractionManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("Presionaste Q");
+            Debug.Log("Presionaste E");
             Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
             if (Physics.Raycast(ray, out RaycastHit hit, interactionDistance))
             {
