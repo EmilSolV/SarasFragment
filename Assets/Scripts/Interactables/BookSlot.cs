@@ -28,7 +28,7 @@ public class BookSlot : MonoBehaviour
             // Si el puzzle NO está resuelto, vuelve a poner la capa "Grabbable"
             currentBook.gameObject.layer = LayerMask.NameToLayer("Grabbable");
 
-            currentBook = null;
+            currentBook = null; 
         }
     }
 

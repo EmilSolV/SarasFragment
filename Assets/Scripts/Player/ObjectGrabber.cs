@@ -31,6 +31,22 @@ public class ObjectGrabber : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
         if (Physics.Raycast(ray, out RaycastHit hit, grabRange, grabLayer))
         {
+            // ¿Es un libro?
+            Book book = hit.collider.GetComponent<Book>();
+            if (book != null)
+            {
+                // ¿Está en un slot?
+                BookSlot slot = book.GetComponentInParent<BookSlot>();
+                if (slot != null && slot.currentBook == book)
+                {
+                    slot.RemoveBook(); // Libera el slot
+                }
+                heldObject = book;
+                heldObject.OnGrab(handPoint);
+                return;
+            }
+
+            // ¿Es un objeto agarrable normal?
             IGrabbable grabable = hit.collider.GetComponent<IGrabbable>();
             if (grabable != null)
             {

@@ -35,8 +35,10 @@ public class BookshelfPuzzle : MonoBehaviour
             if (slot.currentBook != null)
             {
                 slot.currentBook.SetPuzzleSolved(true);
-                // Cambia la capa del libro para que no sea agarrable
-                slot.currentBook.gameObject.layer = LayerMask.NameToLayer("Default"); // O la capa que prefieras
+                // Desactiva el script Grabbable para que no pueda ser agarrado
+                var grabbable = slot.currentBook.GetComponent<Grabbable>();
+                if (grabbable != null)
+                    grabbable.enabled = false;
             }
         }
     }
