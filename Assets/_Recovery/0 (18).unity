@@ -2099,7 +2099,7 @@ MonoBehaviour:
   m_StopNaN: 0
   m_Dithering: 0
   m_ClearDepth: 1
-  m_AllowXRRendering: 0
+  m_AllowXRRendering: 1
   m_AllowHDROutput: 1
   m_UseScreenCoordOverride: 0
   m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -2127,7 +2127,7 @@ Camera:
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
-  m_FOVAxisMode: 1
+  m_FOVAxisMode: 0
   m_Iso: 200
   m_ShutterSpeed: 0.005
   m_Aperture: 16
@@ -2143,11 +2143,11 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1
-    height: 1
+    width: 0
+    height: 0
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 33
+  field of view: 49
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -2173,13 +2173,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 332686145}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.71464443, y: 0.698922, z: -0.01988293, w: 0.019902738}
-  m_LocalPosition: {x: -7.039, y: 1.434, z: -8.638}
-  m_LocalScale: {x: 1.19646, y: 1.5135684, z: 1.774205}
+  m_LocalRotation: {x: -0.6977882, y: 0.71614975, z: -0.0054210997, w: 0.013852624}
+  m_LocalPosition: {x: -7.02, y: 1.886, z: -8.91}
+  m_LocalScale: {x: 0.92, y: 1.1638358, z: 1.3642483}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -0.037, y: 176.776, z: -91.273}
+  m_LocalEulerAnglesHint: {x: -0.663, y: 178.429, z: -88.503}
 --- !u!1 &337138046 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4416926081852918481, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
