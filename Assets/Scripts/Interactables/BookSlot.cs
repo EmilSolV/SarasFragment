@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class BookSlot : MonoBehaviour
 {
+    public int slotID;
+    public Book currentBook;
+    public BookshelfPuzzle bookshelfPuzzle;
+    public GameObject indicadorVisual;
+
     public bool IsEmpty()
     {
         return currentBook == null;
@@ -9,15 +14,31 @@ public class BookSlot : MonoBehaviour
 
     public void RemoveBook()
     {
-        currentBook = null;
+        // Solo permite quitar el libro si el puzzle NO está resuelto
+        if (bookshelfPuzzle != null && bookshelfPuzzle.IsPuzzleSolved())
+            return;
+
+        if (currentBook != null)
+        {
+            currentBook.transform.SetParent(null);
+
+            Rigidbody rb = currentBook.GetComponent<Rigidbody>();
+            if (rb != null) rb.isKinematic = false;
+
+            // Si el puzzle NO está resuelto, vuelve a poner la capa "Grabbable"
+            currentBook.gameObject.layer = LayerMask.NameToLayer("Grabbable");
+
+            currentBook = null; 
+        }
     }
 
-    public int slotID;
-    public Book currentBook;
-    public BookshelfPuzzle bookshelfPuzzle; // Asignás esto desde el Inspector o lo buscás en Start
 
     public void PlaceBook(Book book)
     {
+        // Solo permite colocar si el puzzle NO está resuelto
+        if (bookshelfPuzzle != null && bookshelfPuzzle.IsPuzzleSolved())
+            return;
+
         currentBook = book;
         book.transform.SetParent(transform);
         book.transform.localPosition = Vector3.zero;
@@ -31,25 +52,23 @@ public class BookSlot : MonoBehaviour
             bookshelfPuzzle.CheckPuzzle();
         }
     }
-    public GameObject indicadorVisual;
+
+    public void SetIndicadorVisual(bool activo)
+    {
+        if (indicadorVisual != null)
+            indicadorVisual.SetActive(activo);
+    }
+
+    public void ResetSlot()
+    {
+        currentBook = null;
+        // Opcional: puedes apagar el indicador visual si lo usas
+        SetIndicadorVisual(false);
+    }
 
     void Start()
     {
         if (indicadorVisual != null)
             indicadorVisual.SetActive(false);
     }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player") && IsEmpty())
-            indicadorVisual.SetActive(true);
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-            indicadorVisual.SetActive(false);
-    }
-
 }
-

@@ -21,12 +21,18 @@ public class LoopManager : MonoBehaviour
                 playerReturnManager.MoveToReturnPosition();
             }
 
-            InteractableObject[] interactables = FindObjectsOfType<InteractableObject>();
+            BookshelfPuzzle puzzle = FindObjectOfType<BookshelfPuzzle>();
+            if (puzzle != null && !puzzle.IsPuzzleSolved()) // Solo si el puzzle no está resuelto
+            {
+                puzzle.ResetPuzzle();
+            }
+
+            Grabbable[] interactables = FindObjectsOfType<Grabbable>();
             foreach (var obj in interactables)
             {
                 if (obj.resetOnLoop)
                 {
-                    obj.ResetToInitial();
+                    obj.ResetObject();
                 }
             }
 
