@@ -41,6 +41,8 @@ public class BookshelfPuzzle : MonoBehaviour
                     grabbable.enabled = false;
             }
         }
+
+        PuzzleManager.Instance.PuzzleResuelto("Puzzle_1");
     }
 
     public void ResetPuzzle()

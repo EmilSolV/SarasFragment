@@ -29,6 +29,8 @@ public class CameraManager : MonoBehaviour
 
     void SetCameraMode(bool firstPerson)
     {
+        MetricManager.Instance.RegistrarEvento("CambioCamara", 1f);
+
         firstPersonCamera.SetActive(firstPerson);
         mainCamera.SetActive(!firstPerson);
         playerMainCamera.SetActive(!firstPerson);

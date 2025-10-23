@@ -60,5 +60,6 @@ public class BañoPuzzleController : MonoBehaviour
             Debug.Log("Polaroid del baño activada");
         }
         duchaActivada = true;
+        PuzzleManager.Instance.PuzzleResuelto("Puzzle_2");
     }
 }
