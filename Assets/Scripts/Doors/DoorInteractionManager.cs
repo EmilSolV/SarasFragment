@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class DoorInteractionManager : MonoBehaviour
 {
-    public Camera playerCamera;
+    public Camera FPCamera;
     public float interactionDistance = 3f;
 
     void Start()
     {
-        if (playerCamera == null)
+        if (FPCamera == null)
         {
-            playerCamera = Camera.main;
+           FPCamera = Camera.main;
         }
         Debug.Log("DoorInteractionManager iniciado");
     }
@@ -19,7 +19,7 @@ public class DoorInteractionManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             Debug.Log("Presionaste E");
-            Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+            Ray ray = FPCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
             if (Physics.Raycast(ray, out RaycastHit hit, interactionDistance))
             {
                 Debug.Log("Raycast hit: " + hit.collider.name);
