@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &8093316023529828514
+--- !u!1001 &1053104875919663675
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -22,47 +22,47 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a89368b13fb6b0248b748386c071c011, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.359
+      value: -1.881
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a89368b13fb6b0248b748386c071c011, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.838
+      value: 1.219
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a89368b13fb6b0248b748386c071c011, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.84
+      value: -3.372
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a89368b13fb6b0248b748386c071c011, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.5003942
+      value: 0.03574007
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a89368b13fb6b0248b748386c071c011, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.49599364
+      value: 0.054933786
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a89368b13fb6b0248b748386c071c011, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.5210858
+      value: 0.7687282
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a89368b13fb6b0248b748386c071c011, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.4817319
+      value: -0.6362091
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a89368b13fb6b0248b748386c071c011, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 86.791
+      value: 79.134
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a89368b13fb6b0248b748386c071c011, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 128.804
+      value: 184.549
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a89368b13fb6b0248b748386c071c011, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 38.435
+      value: 11.934
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a89368b13fb6b0248b748386c071c011, type: 3}
       propertyPath: m_Name
-      value: Primera foto
+      value: Segunda foto
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a89368b13fb6b0248b748386c071c011, type: 3}
       propertyPath: m_Layer
@@ -70,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a89368b13fb6b0248b748386c071c011, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -78,42 +78,42 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a89368b13fb6b0248b748386c071c011, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 613198927405067941}
+      addedObject: {fileID: 7089589802905650976}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a89368b13fb6b0248b748386c071c011, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4995223966963892046}
+      addedObject: {fileID: 5260586738969895378}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a89368b13fb6b0248b748386c071c011, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2823197587934759894}
+      addedObject: {fileID: 1601009749502852419}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a89368b13fb6b0248b748386c071c011, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 389595332124045781}
+      addedObject: {fileID: 4184221038800588988}
   m_SourcePrefab: {fileID: 100100000, guid: a89368b13fb6b0248b748386c071c011, type: 3}
---- !u!1 &8975768456057441779 stripped
+--- !u!1 &170020369160298346 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a89368b13fb6b0248b748386c071c011, type: 3}
-  m_PrefabInstance: {fileID: 8093316023529828514}
+  m_PrefabInstance: {fileID: 1053104875919663675}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &613198927405067941
+--- !u!114 &7089589802905650976
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8975768456057441779}
+  m_GameObject: {fileID: 170020369160298346}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 739c76fd556f413449f28a6903d108d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InspectTrigger
   objectPrefab: {fileID: 6952001642580245404, guid: 49248220b0b0ec346b77827773635656, type: 3}
---- !u!65 &4995223966963892046
+--- !u!65 &5260586738969895378
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8975768456057441779}
+  m_GameObject: {fileID: 170020369160298346}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -128,13 +128,13 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.13559523, y: 0.0006777644, z: 0.13559523}
   m_Center: {x: 0.00000044703484, y: -0.00010165572, z: 0.00490053}
---- !u!114 &2823197587934759894
+--- !u!114 &1601009749502852419
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8975768456057441779}
+  m_GameObject: {fileID: 170020369160298346}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: baee142b28f1fc34d9957c55fd942f92, type: 3}
@@ -143,19 +143,16 @@ MonoBehaviour:
   highlightColor: {r: 1, g: 1, b: 1, a: 1}
   highlightAlpha: 0.5
   isHighlighted: 0
---- !u!114 &389595332124045781
+--- !u!114 &4184221038800588988
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8975768456057441779}
+  m_GameObject: {fileID: 170020369160298346}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a87d9e0fa20b7243b835efb125cbc06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  collectMessage: 'Recuerdo recolectado: polaroid.
-
-    Esto parece una foto de Sara
-    peleando con alguien...'
+  collectMessage: 'Recuerdo recolectado: Aca hiria el segundo recuerdo -.-'

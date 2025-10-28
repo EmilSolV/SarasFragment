@@ -10,6 +10,7 @@ public class BañoPuzzleController : MonoBehaviour
     public TextMeshProUGUI codigoText;
     public Camera playerCamera;
     public float distanciaInteraccion = 3f;
+    public DoorController puertaParaDesbloquear; // Asigna en el inspector
 
     private bool duchaActivada = false;
 
@@ -24,10 +25,18 @@ public class BañoPuzzleController : MonoBehaviour
             {
                 if (hit.collider.CompareTag("Ducha") && !duchaActivada)
                 {
-                    ActivarDucha();
+                    ResolverPuzzle();
                 }
             }
         }
+    }
+
+    void ResolverPuzzle()
+    {
+        ActivarDucha();
+        if (puertaParaDesbloquear != null)
+            puertaParaDesbloquear.UnlockDoor();
+        PuzzleManager.Instance.PuzzleResuelto("Puzzle_2");
     }
 
     void ActivarDucha()
