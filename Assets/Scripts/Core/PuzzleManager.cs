@@ -41,6 +41,11 @@ public class PuzzleManager : MonoBehaviour
         MetricManager.Instance.RegistrarEvento(puzzleName, tiempoParcial);
     }
 
+    public bool EstaResuelto(string puzzleName)
+    {
+        return tiemposPorPuzzle.ContainsKey(puzzleName);
+    }
+
     // Llamar al finalizar la partida
     public void FinPartida()
     {
