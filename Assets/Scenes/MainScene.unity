@@ -2504,9 +2504,7 @@ GameObject:
   - component: {fileID: 257296433}
   - component: {fileID: 257296432}
   - component: {fileID: 257296435}
-  - component: {fileID: 257296436}
-  - component: {fileID: 257296437}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Velador
   m_TagString: Velador
   m_Icon: {fileID: 0}
@@ -2522,7 +2520,7 @@ Transform:
   m_GameObject: {fileID: 257296430}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.040902752, z: -0, w: 0.99916315}
-  m_LocalPosition: {x: -3.0910003, y: 1.051, z: -0.636}
+  m_LocalPosition: {x: -3.08, y: 1.051, z: -0.77}
   m_LocalScale: {x: 0.12772058, y: 0.12930861, z: 0.12772058}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2547,8 +2545,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.6686978, y: 1, z: 1.391679}
+  m_Center: {x: 0.009359971, y: 0, z: 0.013215387}
 --- !u!23 &257296433
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2614,52 +2612,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 257296430}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ac12de0632c87949a2bf4bee0de63fc, type: 3}
+  m_Script: {fileID: 11500000, guid: e23625bd00a2325429041c864e5e07b1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RevealableMessage
-  uvLight: {fileID: 2115334629}
-  hiddenMessage: {fileID: 754948300}
-  detectionPoint: {fileID: 580121528}
---- !u!114 &257296436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 257296430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a81cb987b1b3444ca9cdb1fac795e9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ActivarCamaraVelador
-  veladorInteraction: {fileID: 2115334630}
---- !u!54 &257296437
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 257296430}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_EditorClassIdentifier: Assembly-CSharp::PuzzleVelador
+  veladorCam: {fileID: 895217563}
+  fpCamera: {fileID: 1958660089}
+  distanciaInteraccion: 2.5
 --- !u!1 &259646036
 GameObject:
   m_ObjectHideFlags: 0
@@ -16171,7 +16129,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 10
+  m_Priority: 0
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
@@ -16203,7 +16161,7 @@ Transform:
   m_GameObject: {fileID: 895217562}
   serializedVersion: 2
   m_LocalRotation: {x: -0.007675517, y: -0.045908384, z: -0.013514877, w: 0.9988248}
-  m_LocalPosition: {x: -3.0688508, y: 1.0717824, z: -0.98053837}
+  m_LocalPosition: {x: -3.075, y: 1.132, z: -0.896}
   m_LocalScale: {x: 0.58463055, y: 0.58602846, z: 0.5841793}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -27468,6 +27426,7 @@ MonoBehaviour:
   mainCamera: {fileID: 1324200150}
   playerMainCamera: {fileID: 1330648067}
   firstPersonCamera: {fileID: 1958660089}
+  puzzleVelador: {fileID: 257296435}
   playerCameraTransform: {fileID: 1330648070}
 --- !u!1 &1958593099
 GameObject:
@@ -28222,14 +28181,13 @@ GameObject:
   - component: {fileID: 2115334627}
   - component: {fileID: 2115334629}
   - component: {fileID: 2115334628}
-  - component: {fileID: 2115334630}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: LuzUv
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2115334627
 Transform:
   m_ObjectHideFlags: 0
@@ -28339,23 +28297,6 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
---- !u!114 &2115334630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2115334626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5080081ec223e24e813d290c58a804e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::VeladorInteraction
-  veladorCam: {fileID: 895217563}
-  velador: {fileID: 895217562}
-  distanciaInteraccion: 2
-  fpCamera: {fileID: 1958660089}
-  luzUV: {fileID: 2115334629}
 --- !u!1 &2117740349
 GameObject:
   m_ObjectHideFlags: 0
