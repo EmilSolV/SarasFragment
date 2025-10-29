@@ -8,11 +8,6 @@ public class TimeManager : MonoBehaviour
 
     public LoopManager loopManager;
 
-    void Start()
-    {
-        StartLoopTimer();
-    }
-
     void Update()
     {
         if (loopActive)

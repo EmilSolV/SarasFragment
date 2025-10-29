@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
+using UnityEditor.EditorTools;
 using UnityEngine;
 
 public class PuzzleManager : MonoBehaviour
 {
     public static PuzzleManager Instance { get; private set; }
+    public LoopManager loopManager;
 
     private DateTime partidaStartTime;
     private DateTime ultimoPuzzleTime;
@@ -39,6 +41,8 @@ public class PuzzleManager : MonoBehaviour
 
         // Registrar el tiempo parcial en MetricManager
         MetricManager.Instance.RegistrarEvento(puzzleName, tiempoParcial);
+        if(puzzleName == "Puzzle_1")
+            loopManager.StartNewLoop();
     }
 
     public bool EstaResuelto(string puzzleName)

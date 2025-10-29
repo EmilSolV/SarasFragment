@@ -9671,6 +9671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc8f7a9104c133e448c31904d9a2d767, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PuzzleManager
+  loopManager: {fileID: 62944837}
 --- !u!4 &564925418 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6044159111065775861, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
@@ -34159,7 +34160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c26498022a1ce546b1d3a0c0da91bbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DoorController
-  pivot: {fileID: 0}
+  pivot: {fileID: 2005958262}
   openRotation: {x: 0, y: -90, z: 0}
   openSpeed: 2
   isLocked: 1
