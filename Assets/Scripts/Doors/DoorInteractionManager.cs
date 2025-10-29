@@ -2,24 +2,28 @@ using UnityEngine;
 
 public class DoorInteractionManager : MonoBehaviour
 {
-    public Camera FPCamera;
+    public Camera firstPersonCamera;
+    public Camera thirdPersonCamera;
     public float interactionDistance = 3f;
 
-    void Start()
+    private void Start()
     {
-        if (FPCamera == null)
-        {
-           FPCamera = Camera.main;
-        }
         Debug.Log("DoorInteractionManager iniciado");
     }
 
-    void Update()
+    private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
             Debug.Log("Presionaste Click Izq<");
-            Ray ray = FPCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+            Camera activeCam = GetActiveCamera();
+            if (activeCam == null)
+            {
+                Debug.LogWarning("No hay cámara activa asignada.");
+                return;
+            }
+
+            Ray ray = activeCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
             if (Physics.Raycast(ray, out RaycastHit hit, interactionDistance))
             {
                 Debug.Log("Raycast hit: " + hit.collider.name);
@@ -39,5 +43,14 @@ public class DoorInteractionManager : MonoBehaviour
                 Debug.Log("Raycast no tocó ningún objeto");
             }
         }
+    }
+
+    private Camera GetActiveCamera()
+    {
+        if (firstPersonCamera != null && firstPersonCamera.gameObject.activeInHierarchy)
+            return firstPersonCamera;
+        if (thirdPersonCamera != null && thirdPersonCamera.gameObject.activeInHierarchy)
+            return thirdPersonCamera;
+        return Camera.main; // Fallback por si acaso
     }
 }

@@ -44,7 +44,7 @@ public class CameraManager : MonoBehaviour
 
         firstPersonCamera.SetActive(firstPerson);
         mainCamera.SetActive(!firstPerson);
-        playerMainCamera.SetActive(!firstPerson);
+        //playerMainCamera.SetActive(!firstPerson);
 
         playerController.isFirstPerson = firstPerson;
 
