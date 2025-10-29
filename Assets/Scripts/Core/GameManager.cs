@@ -1,15 +1,21 @@
+using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-
     void Start()
     {
+        string sessionName = GenerateSessionName();
+        MetricManager.Instance.IniciarSesion(sessionName);
+
         DialogManager.Instance.ShowMessage("Bienvenido a Sara's Fragments", 4f);
         DialogManager.Instance.ShowMessage("Intenta resolver el puzzle de la habitación antes que se acabe el tiempo.", 5f);
         DialogManager.Instance.ShowMessage("Si se acaba deberás comenzarlo desde el principio.", 5f);
+
+        MetricManager.Instance.RegistrarEvento("TiempoDeJuego", TimeSpan.FromSeconds(123.456));
+        
     }
 
     void Awake()
@@ -37,5 +43,10 @@ public class GameManager : MonoBehaviour
             Debug.Log("Fin del juego. No se resolvió el misterio.");
             // Mostrar pantalla de derrota, etc.
         }
+    }
+
+    private string GenerateSessionName()
+    {
+        return DateTime.Now.ToString("yyyyMMdd_HHmmss");
     }
 }

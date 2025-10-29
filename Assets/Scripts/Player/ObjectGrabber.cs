@@ -11,7 +11,7 @@ public class ObjectGrabber : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetMouseButtonDown(0))
         {
             if (heldObject == null)
                 TryGrab();
@@ -19,7 +19,7 @@ public class ObjectGrabber : MonoBehaviour
                 TryPlaceOrDrop();
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetMouseButtonDown(0))
         {
             TryInteract();
         }

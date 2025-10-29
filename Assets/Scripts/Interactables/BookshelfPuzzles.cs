@@ -4,8 +4,7 @@ public class BookshelfPuzzle : MonoBehaviour
 {
     public BookSlot[] slots; // Asignás los 3 slots desde el Inspector
     public int[] correctOrder = { 0, 1, 2 }; // Guerra, Ciencia, Arte
-    public GameObject polaroidPrefab;
-    public Transform polaroidSpawnPoint;
+    public GameObject polaroidEstante; 
     private bool puzzleSolved = false;
     public DoorController puertaParaDesbloquear; // Asigna en el inspector
 
@@ -35,12 +34,16 @@ public class BookshelfPuzzle : MonoBehaviour
             if (slot.currentBook != null)
             {
                 slot.currentBook.SetPuzzleSolved(true);
-                // Desactiva el script Grabbable para que no pueda ser agarrado
+                Collider col = slot.currentBook.GetComponent<Collider>();
+                if (col != null)
+                    col.enabled = false;
                 var grabbable = slot.currentBook.GetComponent<Grabbable>();
                 if (grabbable != null)
                     grabbable.enabled = false;
             }
-        }
+        }   
+
+        PuzzleManager.Instance.PuzzleResuelto("Puzzle_1");
     }
 
     public void ResetPuzzle()
@@ -55,6 +58,10 @@ public class BookshelfPuzzle : MonoBehaviour
 
     void SpawnPolaroid()
     {
-        Instantiate(polaroidPrefab, polaroidSpawnPoint.position, Quaternion.identity);
+        if (polaroidEstante != null)
+        {
+            polaroidEstante.SetActive(true);
+            Debug.Log("Polaroid del estante activada");
+        }
     }
 }

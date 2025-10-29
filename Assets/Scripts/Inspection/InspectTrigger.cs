@@ -8,7 +8,7 @@ public class InspectTrigger : MonoBehaviour
 
     //void Update()
     //{
-    // if (playerInRange && Input.GetKeyDown(KeyCode.E))
+    // if (playerInRange && Input.GetMouseButtonDown(0))
     //{
     // if (objectPrefab != null)
     //{
@@ -25,7 +25,7 @@ public class InspectTrigger : MonoBehaviour
 
     void Update()
     {
-        if (playerInRange && Input.GetKeyDown(KeyCode.E))
+        if (playerInRange && Input.GetMouseButtonDown(0))
         {
             if (objectPrefab != null)
             {

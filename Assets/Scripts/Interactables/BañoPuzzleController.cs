@@ -10,12 +10,13 @@ public class BañoPuzzleController : MonoBehaviour
     public TextMeshProUGUI codigoText;
     public Camera playerCamera;
     public float distanciaInteraccion = 3f;
+    public DoorController puertaParaDesbloquear; // Asigna en el inspector
 
     private bool duchaActivada = false;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetMouseButtonDown(0))
         {
             Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
             RaycastHit hit;
@@ -24,10 +25,18 @@ public class BañoPuzzleController : MonoBehaviour
             {
                 if (hit.collider.CompareTag("Ducha") && !duchaActivada)
                 {
-                    ActivarDucha();
+                    ResolverPuzzle();
                 }
             }
         }
+    }
+
+    void ResolverPuzzle()
+    {
+        ActivarDucha();
+        if (puertaParaDesbloquear != null)
+            puertaParaDesbloquear.UnlockDoor();
+        PuzzleManager.Instance.PuzzleResuelto("Puzzle_2");
     }
 
     void ActivarDucha()
@@ -60,5 +69,6 @@ public class BañoPuzzleController : MonoBehaviour
             Debug.Log("Polaroid del baño activada");
         }
         duchaActivada = true;
+        PuzzleManager.Instance.PuzzleResuelto("Puzzle_2");
     }
 }
