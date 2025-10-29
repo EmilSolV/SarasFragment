@@ -16,9 +16,9 @@ public class DoorInteractionManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Presionaste E");
+            Debug.Log("Presionaste Click Izq<");
             Ray ray = FPCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
             if (Physics.Raycast(ray, out RaycastHit hit, interactionDistance))
             {

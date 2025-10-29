@@ -9,7 +9,7 @@ public class ActivarVeladorCam : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetMouseButtonDown(0))
         {
             Ray ray = new Ray(fpCamera.transform.position, fpCamera.transform.forward);
             if (Physics.Raycast(ray, out RaycastHit hit, distanciaInteraccion))

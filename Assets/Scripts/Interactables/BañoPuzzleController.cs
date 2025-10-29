@@ -16,7 +16,7 @@ public class BañoPuzzleController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetMouseButtonDown(0))
         {
             Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
             RaycastHit hit;

@@ -7,7 +7,7 @@ public class PillowReveal : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && !hasMoved && PlayerIsNear())
+        if (Input.GetMouseButtonDown(0) && !hasMoved && PlayerIsNear())
         {
             hasMoved = true;
         }

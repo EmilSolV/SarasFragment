@@ -21,7 +21,7 @@ public class CameraManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetMouseButtonDown(1))
         {
             if (puzzleVelador != null && puzzleVelador.inspeccionActiva)
             {

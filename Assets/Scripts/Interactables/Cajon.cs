@@ -19,7 +19,7 @@ public class Cajon : MonoBehaviour, IInteractable
     void Update()
     {
         float distance = Vector3.Distance(player.position, transform.position);
-        if (distance < activationDistance && Input.GetKeyDown(KeyCode.E))
+        if (distance < activationDistance && Input.GetMouseButtonDown(0))
         {
             isOpen = !isOpen;
         }
