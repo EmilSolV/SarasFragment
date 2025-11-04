@@ -53,7 +53,7 @@ public class CameraManager : MonoBehaviour
             if (firstPerson)
             {
                 playerCameraTransform.localPosition = new Vector3(0f, 1.6f, 0f);
-                playerCameraTransform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+                //playerCameraTransform.localRotation = Quaternion.Euler(0f, 0f, 0f);
             }
             else
             {

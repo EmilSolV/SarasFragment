@@ -4,6 +4,8 @@ using TMPro;
 public class BañoPuzzleController : MonoBehaviour
 {
     [Header("Referencias")]
+    [Header("Ficha")]
+    public FichaVisualInteractiva fichaVisual;
     public GameObject polaroidBaño; // Asignalo en el Inspector
     public GameObject vaporEffect;
     public GameObject vaporOverlay;
@@ -25,7 +27,14 @@ public class BañoPuzzleController : MonoBehaviour
             {
                 if (hit.collider.CompareTag("Ducha") && !duchaActivada)
                 {
-                    ResolverPuzzle();
+                    if (fichaVisual != null && fichaVisual.EstaConectada)
+                    {
+                        ResolverPuzzle();
+                    }
+                    else
+                    {
+                        Debug.Log("⚠️ La ficha no está conectada. No se puede activar la ducha.");
+                    }
                 }
             }
         }
