@@ -25,11 +25,13 @@ public class DoorController : MonoBehaviour, IDoorInteractable
         if (isLocked)
         {
             DialogManager.Instance.ShowMessage("La puerta está bloqueada. Resuelve el puzzle para abrirla.", 3f);
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.doorLockedSound, 0.2f);
             return;
         }
 
         isOpen = !isOpen;
         targetRot = isOpen ? Quaternion.Euler(pivot.eulerAngles + openRotation) : closedRot;
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.doorOpenSound, 0.4f);
         Debug.Log("ToggleDoor ejecutado");
     }
 
@@ -37,6 +39,7 @@ public class DoorController : MonoBehaviour, IDoorInteractable
     {
         isLocked = false;
         //DialogManager.Instance.ShowMessage("¡Puerta desbloqueada!", 3f);
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.doorUnlockedSound, 0.2f);
         Debug.Log("Puerta desbloqueada");
     }
 
