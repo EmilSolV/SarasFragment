@@ -35,13 +35,11 @@ public class GameManager : MonoBehaviour
     {
         if (victory)
         {
-            Debug.Log("¡Has resuelto el misterio!");
-            // Mostrar pantalla de victoria, etc.
+            DialogManager.Instance.ShowMessage("¡Has resuelto el misterio!", 5f);
         }
         else
         {
-            Debug.Log("Fin del juego. No se resolvió el misterio.");
-            // Mostrar pantalla de derrota, etc.
+            DialogManager.Instance.ShowMessage("Fin del juego. No se resolvió el misterio.", 5f);
         }
     }
 

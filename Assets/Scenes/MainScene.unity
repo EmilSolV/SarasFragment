@@ -2089,6 +2089,7 @@ GameObject:
   - component: {fileID: 170294419}
   - component: {fileID: 170294423}
   - component: {fileID: 170294424}
+  - component: {fileID: 170294425}
   m_Layer: 0
   m_Name: FichaVisual
   m_TagString: Untagged
@@ -2105,8 +2106,8 @@ Transform:
   m_GameObject: {fileID: 170294417}
   serializedVersion: 2
   m_LocalRotation: {x: -0.000000029802319, y: -0, z: -0.000000014901159, w: 1}
-  m_LocalPosition: {x: -3.1840281, y: 0.5372544, z: 2.8872302}
-  m_LocalScale: {x: 0.12178682, y: 0.06484671, z: 0.084234595}
+  m_LocalPosition: {x: -3.3903, y: 0.5541, z: 2.9227}
+  m_LocalScale: {x: 0.06527773, y: 0.04322033, z: 0.05608537}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1608287351}
@@ -2144,8 +2145,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.1839107, y: 1.108288, z: 1.2175226}
-  m_Center: {x: 0.088778734, y: 0.027906034, z: -0.011634749}
+  m_Size: {x: 2.2502136, y: 1.551828, z: 2.4575386}
+  m_Center: {x: 0.014654592, y: 0.24967645, z: -0.004058}
 --- !u!23 &170294421
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2253,6 +2254,21 @@ SpringJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &170294425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170294417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baee142b28f1fc34d9957c55fd942f92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HighlightEffect
+  highlightColor: {r: 1, g: 1, b: 1, a: 1}
+  highlightAlpha: 0.5
+  isHighlighted: 0
 --- !u!1001 &180013094
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3072,7 +3088,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &253360760
 Transform:
   m_ObjectHideFlags: 0
@@ -16624,7 +16640,6 @@ Transform:
   m_Children:
   - {fileID: 373507871}
   - {fileID: 525192632}
-  - {fileID: 1372094303}
   - {fileID: 515617102}
   - {fileID: 1454002002}
   - {fileID: 766608971}
@@ -24067,7 +24082,7 @@ Transform:
   m_GameObject: {fileID: 1347973971}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.16, y: 0, z: -7.7}
+  m_LocalPosition: {x: -0.16, y: 0, z: -2.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24159,59 +24174,6 @@ Transform:
   - {fileID: 1831866866}
   m_Father: {fileID: 286337836}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1372094302
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1372094303}
-  - component: {fileID: 1372094304}
-  m_Layer: 9
-  m_Name: Pared1 (2)
-  m_TagString: Wall
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1372094303
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1372094302}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.7070605, z: -0, w: 0.7071531}
-  m_LocalPosition: {x: -5.49, y: 0.27800006, z: -6.74}
-  m_LocalScale: {x: 1.7958877, y: 0.54792, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 816352972}
-  m_LocalEulerAnglesHint: {x: 0, y: -89.992, z: 0}
---- !u!65 &1372094304
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1372094302}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 5.587945, y: 6.0265546, z: 0.021506786}
-  m_Center: {x: 2.2939725, y: 2.5132773, z: 0.4892466}
 --- !u!1 &1387397271
 GameObject:
   m_ObjectHideFlags: 0
@@ -36763,7 +36725,7 @@ GameObject:
   - component: {fileID: 7278160975021504508}
   m_Layer: 3
   m_Name: "Ca\xF1oDucha"
-  m_TagString: Untagged
+  m_TagString: Ducha
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36807,8 +36769,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.06429087, y: 0.85150576, z: 0.3954923}
-  m_Center: {x: -3.4906921, y: -0.37374517, z: 0.004601025}
+  m_Size: {x: 0.22908087, y: 0.85150576, z: 0.57733876}
+  m_Center: {x: -3.408292, y: -0.37374517, z: 0.07023954}
 --- !u!54 &7278160975021504508
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -26,14 +26,15 @@ public class BañoPuzzleController : MonoBehaviour
             if (Physics.Raycast(ray, out hit, distanciaInteraccion))
             {
                 if (hit.collider.CompareTag("Ducha") && !duchaActivada)
-                {
+                {                
                     if (fichaVisual != null && fichaVisual.EstaConectada)
                     {
                         ResolverPuzzle();
+                        DialogManager.Instance.ShowMessage("Cuanto vapor. Casi no veo.", 5f);
                     }
                     else
                     {
-                        Debug.Log("⚠️ La ficha no está conectada. No se puede activar la ducha.");
+                        DialogManager.Instance.ShowMessage("Mmm... el agua fría no parece servir de mucho.", 5f);
                     }
                 }
             }
