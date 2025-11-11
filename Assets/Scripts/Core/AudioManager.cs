@@ -8,16 +8,20 @@ public class AudioManager : MonoBehaviour
     public AudioSource musicSource;
     public AudioSource sfxSource;
 
-    [Header("Clips")]
+    [Header("Music")]
     public AudioClip backgroundMusic;
-    public AudioClip pickupSound;
+
+    [Header("UI SFX")]
+    public AudioClip clickUI;
+
+    [Header("Door SFX")]
     public AudioClip doorOpenSound;
     public AudioClip doorLockedSound;
     public AudioClip doorUnlockedSound;
-    public AudioClip clickUI;
 
-    //USOS
-    //AudioManager.Instance.PlaySFX(AudioManager.Instance.pickupSound);
+    [Header("Grabbable SFX")]
+    public AudioClip grabSound;
+    public AudioClip hitFloorSound;
 
     void Awake()
     {
@@ -49,6 +53,7 @@ public class AudioManager : MonoBehaviour
     public void PlaySFX(AudioClip clip, float volume = 1f)
     {
         if (clip == null) return;
+        sfxSource.pitch = Random.Range(0.95f, 1.05f); // Variación natural opcional
         sfxSource.PlayOneShot(clip, volume);
     }
 }

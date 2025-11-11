@@ -7,6 +7,13 @@ public class Grabbable : MonoBehaviour, IGrabbable
     private Rigidbody rb;
     public bool resetOnLoop = true; // Puedes cambiar esto según el estado del puzzle
 
+    [Header("Sonidos Personalizados (Opcionales)")]
+    public AudioClip customPickupSound;
+    public AudioClip customHitGroundSound;
+
+    private AudioClip pickupSound;
+    private AudioClip hitGroundSound;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -17,6 +24,12 @@ public class Grabbable : MonoBehaviour, IGrabbable
         // Guardar la posición y rotación al inicio
         initialPosition = transform.position;
         initialRotation = transform.rotation;
+
+        rb = GetComponent<Rigidbody>();
+
+        // Si no hay sonidos personalizados, usar los del AudioManager
+        pickupSound = customPickupSound != null ? customPickupSound : AudioManager.Instance.grabSound;
+        hitGroundSound = customHitGroundSound != null ? customHitGroundSound : AudioManager.Instance.hitFloorSound;
     }
 
     public virtual void OnGrab(Transform handPoint)
@@ -25,12 +38,27 @@ public class Grabbable : MonoBehaviour, IGrabbable
         transform.SetParent(handPoint);
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.identity;
+
+        if (pickupSound != null)
+            AudioManager.Instance.PlaySFX(pickupSound);
+
+        if (rb != null)
+            rb.isKinematic = true;
     }
 
     public virtual void OnDrop()
     {
         if (rb != null) rb.isKinematic = false;
         transform.SetParent(null);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        // Evitar sonido al agarrarlo (mientras está en la mano)
+        if (rb != null && rb.isKinematic) return;
+
+        if (hitGroundSound != null)
+            AudioManager.Instance.PlaySFX(hitGroundSound);
     }
 
     public virtual void ResetObject()
@@ -50,4 +78,5 @@ public class Grabbable : MonoBehaviour, IGrabbable
     {
         resetOnLoop = !solved;
     }
+
 }

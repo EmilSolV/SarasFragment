@@ -26,12 +26,10 @@ public class ReveladorUV : MonoBehaviour
         }
 
         float distancia = Vector3.Distance(transform.position, luzUV.transform.position);
-        Debug.Log("Distancia a luz UV: " + distancia);
 
         if (luzUV.enabled && distancia < distanciaActivacion)
         {
             textoRenderer.enabled = true;
-            Debug.Log("Número revelado");
         }
         else
         {

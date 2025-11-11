@@ -11,6 +11,7 @@ TagManager:
   - Velador
   - Termotanque
   - Enchufe
+  - Floor
   layers:
   - Default
   - TransparentFX

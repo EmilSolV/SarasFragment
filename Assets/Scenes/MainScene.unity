@@ -1835,6 +1835,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Grabbable
   resetOnLoop: 1
+  customPickupSound: {fileID: 0}
+  customHitGroundSound: {fileID: 0}
 --- !u!54 &149470498
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10353,6 +10355,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Grabbable
   resetOnLoop: 1
+  customPickupSound: {fileID: 0}
+  customHitGroundSound: {fileID: 0}
 --- !u!114 &562433598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10514,6 +10518,135 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.38770986, y: 0.17992719, z: 0.30117643}
   m_Center: {x: 0.000364542, y: -0.18425629, z: 0.000014841557}
+--- !u!1 &569068427
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 569068428}
+  - component: {fileID: 569068429}
+  m_Layer: 3
+  m_Name: ParlanteDucha
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &569068428
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569068427}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1068780278460817252}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &569068429
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569068427}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: be1693fd88775424b9e2c832984cc0e9, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.279
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &575838279
 GameObject:
   m_ObjectHideFlags: 0
@@ -15686,11 +15819,12 @@ MonoBehaviour:
   musicSource: {fileID: 25808069}
   sfxSource: {fileID: 473917001}
   backgroundMusic: {fileID: 0}
-  pickupSound: {fileID: 0}
+  clickUI: {fileID: 0}
   doorOpenSound: {fileID: 8300000, guid: fefa08150227f1e4ea85822c11b1bf09, type: 3}
   doorLockedSound: {fileID: 8300000, guid: f965e1cf5ce03a54e939c3519402e466, type: 3}
   doorUnlockedSound: {fileID: 8300000, guid: 1dab93fb8baa6464982444649829ab01, type: 3}
-  clickUI: {fileID: 0}
+  grabSound: {fileID: 8300000, guid: 72f526a6a9890f643a88e85a61c86c8a, type: 3}
+  hitFloorSound: {fileID: 8300000, guid: 85016e0f2b01da248b9663dd49a161b0, type: 3}
 --- !u!1001 &646911915
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16200,6 +16334,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Grabbable
   resetOnLoop: 1
+  customPickupSound: {fileID: 0}
+  customHitGroundSound: {fileID: 0}
 --- !u!54 &716209304
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -24023,6 +24159,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Book
   resetOnLoop: 1
+  customPickupSound: {fileID: 0}
+  customHitGroundSound: {fileID: 0}
   bookID: 2
   bookName: Arte
 --- !u!65 &1336369563
@@ -25250,7 +25388,7 @@ GameObject:
   - component: {fileID: 1558624651}
   - component: {fileID: 1558624652}
   m_Layer: 9
-  m_Name: RelojAudioSource
+  m_Name: ParlanteReloj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25284,7 +25422,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.12
+  m_Volume: 0.127
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -25370,7 +25508,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.53055555
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -25385,7 +25523,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1.1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -26949,7 +27087,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a2ed2810702bab4dbb596d7836e0bf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioRoomZone
-  roomAudioSources: []
+  roomAudioSources:
+  - {fileID: 569068429}
 --- !u!65 &1679693043
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27582,6 +27721,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Book
   resetOnLoop: 1
+  customPickupSound: {fileID: 0}
+  customHitGroundSound: {fileID: 0}
   bookID: 0
   bookName: Guerra
 --- !u!65 &1788193478
@@ -28586,6 +28727,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Book
   resetOnLoop: 1
+  customPickupSound: {fileID: 0}
+  customHitGroundSound: {fileID: 0}
   bookID: 1
   bookName: Ciencia
 --- !u!65 &1910681541
@@ -30071,6 +30214,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Grabbable
   resetOnLoop: 1
+  customPickupSound: {fileID: 0}
+  customHitGroundSound: {fileID: 0}
 --- !u!1 &2136827406
 GameObject:
   m_ObjectHideFlags: 0
@@ -30097,7 +30242,7 @@ Transform:
   m_GameObject: {fileID: 2136827406}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.70720524, z: -0, w: 0.7070083}
-  m_LocalPosition: {x: -5.57, y: 0.27800006, z: -6.09}
+  m_LocalPosition: {x: -6.433, y: 0.27800006, z: -6.09}
   m_LocalScale: {x: 1.1611371, y: 0.54792, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -30122,8 +30267,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 7.200154, y: 6.026555, z: 0.021506783}
-  m_Center: {x: 3.1000772, y: 2.5132773, z: 0.48924607}
+  m_Size: {x: 7.200154, y: 5.3055797, z: 0.31828764}
+  m_Center: {x: 3.1000772, y: 2.152791, z: -0.18268993}
 --- !u!1 &2144472696
 GameObject:
   m_ObjectHideFlags: 0
@@ -31154,6 +31299,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1022011129}
+  - {fileID: 569068428}
   m_Father: {fileID: 1488846720}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1098211862260655913
@@ -36868,6 +37014,7 @@ MonoBehaviour:
   playerCamera: {fileID: 235236385}
   distanciaInteraccion: 2
   puertaParaDesbloquear: {fileID: 1244701408}
+  duchaAudioSource: {fileID: 569068429}
 --- !u!65 &7278160975021504507
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36887,8 +37034,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.22908087, y: 0.85150576, z: 0.57733876}
-  m_Center: {x: -3.408292, y: -0.37374517, z: 0.07023954}
+  m_Size: {x: 0.6149728, y: 0.9005914, z: 0.57733876}
+  m_Center: {x: -3.4490483, y: -0.34920225, z: 0.07023955}
 --- !u!54 &7278160975021504508
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -38043,13 +38190,35 @@ GameObject:
   - component: {fileID: 6234661296041964042}
   - component: {fileID: 7470709081068645175}
   - component: {fileID: 5239367996203233309}
+  - component: {fileID: 8627468957596360561}
   m_Layer: 0
   m_Name: BaldosaMadera
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &8627468957596360561
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8627468957596360560}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 11.811139, y: 0.11291911, z: 11.135504}
+  m_Center: {x: -0.69910914, y: 0.050000004, z: -5.461292}
 --- !u!4 &8634866330774197035
 Transform:
   m_ObjectHideFlags: 0
@@ -38271,6 +38440,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Grabbable
   resetOnLoop: 1
+  customPickupSound: {fileID: 0}
+  customHitGroundSound: {fileID: 0}
 --- !u!54 &8893617060836812316
 Rigidbody:
   m_ObjectHideFlags: 0
