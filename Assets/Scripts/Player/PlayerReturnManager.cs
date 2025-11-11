@@ -35,4 +35,15 @@ public class PlayerReturnManager : MonoBehaviour
         if (controller != null)
             controller.enabled = true;
     }
+
+    public void ForceTeleport(Vector3 targetPosition)
+    {
+        if (controller != null)
+            controller.enabled = false;
+
+        player.position = targetPosition;
+
+        if (controller != null)
+            controller.enabled = true;
+    }
 }

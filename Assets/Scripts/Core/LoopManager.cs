@@ -7,32 +7,35 @@ public class LoopManager : MonoBehaviour
     public TimeManager timeManager; // Referencia al TimeManager
     public PlayerReturnManager playerReturnManager; // Referencia al PlayerReturnManager
 
-    public void StartNewLoop()
+    public void StartNewLoop(bool isFirstPuzzle = false)
     {
         if (currentLoop < maxLoops)
         {
             currentLoop++;
             Debug.Log($"Iniciando loop {currentLoop}");
 
-            // Reinicia la posición del jugador
-            PlayerReturnData.returnPosition = PlayerReturnData.initialPosition;
-            if (playerReturnManager != null)
+            if (!isFirstPuzzle)
             {
-                playerReturnManager.MoveToReturnPosition();
-            }
-
-            BookshelfPuzzle puzzle = FindObjectOfType<BookshelfPuzzle>();
-            if (puzzle != null && !puzzle.IsPuzzleSolved()) // Solo si el puzzle no está resuelto
-            {
-                puzzle.ResetPuzzle();
-            }
-
-            Grabbable[] interactables = FindObjectsOfType<Grabbable>();
-            foreach (var obj in interactables)
-            {
-                if (obj.resetOnLoop)
+                // Reinicia la posición del jugador
+                PlayerReturnData.returnPosition = PlayerReturnData.initialPosition;
+                if (playerReturnManager != null)
                 {
-                    obj.ResetObject();
+                    playerReturnManager.MoveToReturnPosition();
+                }
+
+                BookshelfPuzzle puzzle = FindObjectOfType<BookshelfPuzzle>();
+                if (puzzle != null && !puzzle.IsPuzzleSolved()) // Solo si el puzzle no está resuelto
+                {
+                    puzzle.ResetPuzzle();
+                }
+
+                Grabbable[] interactables = FindObjectsOfType<Grabbable>();
+                foreach (var obj in interactables)
+                {
+                    if (obj.resetOnLoop)
+                    {
+                        obj.ResetObject();
+                    }
                 }
             }
 
@@ -45,6 +48,7 @@ public class LoopManager : MonoBehaviour
         else
         {
             Debug.Log("Se alcanzó el máximo de loops.");
+            FinalManager.Instance.ActivarFinal();
         }
     }
 

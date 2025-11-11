@@ -7,6 +7,23 @@ public class PuzzleManager : MonoBehaviour
     public static PuzzleManager Instance { get; private set; }
     public LoopManager loopManager;
 
+    [Header("Puzzles que deben resolverse")]
+    public List<string> puzzlesRequeridos = new List<string>()
+    {
+        "Puzzle_1"
+    };
+    public bool todosLosPuzzlesResueltos
+    {
+        get
+        {
+            foreach (var puzzle in puzzlesRequeridos)
+            {
+                if (!EstaResuelto(puzzle))
+                    return false;
+            }
+            return true;
+        }
+    }
     private DateTime partidaStartTime;
     private DateTime ultimoPuzzleTime;
     private Dictionary<string, TimeSpan> tiemposPorPuzzle = new();
@@ -40,8 +57,15 @@ public class PuzzleManager : MonoBehaviour
 
         // Registrar el tiempo parcial en MetricManager
         MetricManager.Instance.RegistrarEvento(puzzleName, tiempoParcial);
-        if(puzzleName == "Puzzle_1")
-            loopManager.StartNewLoop();
+        if (todosLosPuzzlesResueltos)
+        {
+            FinalManager.Instance.ActivarFinal();
+        }
+        else
+        {
+            if (puzzleName == "Puzzle_1")
+                loopManager.StartNewLoop(true);
+        }
     }
 
     public bool EstaResuelto(string puzzleName)
@@ -61,4 +85,5 @@ public class PuzzleManager : MonoBehaviour
     {
         return tiemposPorPuzzle.TryGetValue(puzzleName, out var tiempo) ? tiempo : TimeSpan.Zero;
     }
+
 }
