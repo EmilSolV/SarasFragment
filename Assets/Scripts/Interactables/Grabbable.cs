@@ -44,6 +44,7 @@ public class Grabbable : MonoBehaviour, IGrabbable
 
         if (rb != null)
             rb.isKinematic = true;
+        MetricManager.Instance.RegistrarInteraccionObjeto(this.name);
     }
 
     public virtual void OnDrop()

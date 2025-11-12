@@ -13,8 +13,6 @@ public class GameManager : MonoBehaviour
         DialogManager.Instance.ShowMessage("Bienvenido a Sara's Fragments", 4f);
         DialogManager.Instance.ShowMessage("Intenta resolver el puzzle de la habitación antes que se acabe el tiempo.", 5f);
         DialogManager.Instance.ShowMessage("Si se acaba deberás comenzarlo desde el principio.", 5f);
-
-        MetricManager.Instance.RegistrarEvento("TiempoDeJuego", TimeSpan.FromSeconds(123.456));
         
     }
 

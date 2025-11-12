@@ -13,6 +13,7 @@ public class LoopManager : MonoBehaviour
         {
             currentLoop++;
             Debug.Log($"Iniciando loop {currentLoop}");
+            MetricManager.Instance.RegistrarEvento("LoopIniciado", currentLoop);
 
             if (!isFirstPuzzle)
             {
@@ -47,6 +48,7 @@ public class LoopManager : MonoBehaviour
         }
         else
         {
+            MetricManager.Instance.RegistrarEvento("MaxLoopsAlcanzado", currentLoop);
             Debug.Log("Se alcanzó el máximo de loops.");
             FinalManager.Instance.ActivarFinal();
         }

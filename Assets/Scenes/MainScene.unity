@@ -714,7 +714,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 51439057}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PuntoLibreCable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -829,7 +829,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LoopManager
   currentLoop: 1
-  maxLoops: 6
+  maxLoops: 5
   timeManager: {fileID: 188297769}
   playerReturnManager: {fileID: 761214930}
 --- !u!65 &65372239
@@ -2214,9 +2214,9 @@ GameObject:
   - component: {fileID: 170294423}
   - component: {fileID: 170294424}
   - component: {fileID: 170294425}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FichaVisual
-  m_TagString: Untagged
+  m_TagString: agarrable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2230,7 +2230,7 @@ Transform:
   m_GameObject: {fileID: 170294417}
   serializedVersion: 2
   m_LocalRotation: {x: -0.000000029802319, y: -0, z: -0.000000014901159, w: 1}
-  m_LocalPosition: {x: -3.3903, y: 0.5541, z: 2.9227}
+  m_LocalPosition: {x: -3.3903, y: 0.553, z: 2.9227}
   m_LocalScale: {x: 0.06527773, y: 0.04322033, z: 0.05608537}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20532,6 +20532,8 @@ MonoBehaviour:
   loopManager: {fileID: 62944837}
   puzzlesRequeridos:
   - Puzzle_1
+  - Puzzle_2
+  - Puzzle_3
 --- !u!4 &564925418 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6044159111065775861, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
@@ -27163,7 +27165,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 888443962}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PuntoFijoCable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34274,7 +34276,7 @@ MonoBehaviour:
   pivot: {fileID: 1392451077}
   openRotation: {x: 0, y: -90, z: 0}
   openSpeed: 2
-  isLocked: 0
+  isLocked: 1
 --- !u!23 &1244701409
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -37573,6 +37575,8 @@ MonoBehaviour:
     polaroid: {fileID: 1332296031}
   - puzzleID: Puzzle_2
     polaroid: {fileID: 182518870}
+  - puzzleID: Puzzle_3
+    polaroid: {fileID: 182518870}
   eleccionSospechososUI: {fileID: 1106861289}
   tiempoObservacion: 5
   player: {fileID: 761214930}
@@ -40640,9 +40644,9 @@ GameObject:
   - component: {fileID: 2055204042}
   - component: {fileID: 2055204041}
   - component: {fileID: 2055204040}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CableCilindro
-  m_TagString: Untagged
+  m_TagString: agarrable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43461,6 +43465,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1950185183}
     m_Modifications:
+    - target: {fileID: 389595332124045781, guid: ac42eb83cf8219d48a33b1ae78a775d5, type: 3}
+      propertyPath: collectMessage
+      value: 'Recuerdo recolectado:
+
+        Esto parece una foto de mia peleando
+        con alguien...'
+      objectReference: {fileID: 0}
     - target: {fileID: 8636643454208022345, guid: ac42eb83cf8219d48a33b1ae78a775d5, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.006094
@@ -46361,6 +46372,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 11.934
       objectReference: {fileID: 0}
+    - target: {fileID: 4184221038800588988, guid: f5d61bac9777cb14ba0513e50cf2ada5, type: 3}
+      propertyPath: collectMessage
+      value: "Recuerdo recolectado:\nEs una foto de un pastillero vac\xEDo."
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -47240,7 +47255,7 @@ MonoBehaviour:
   pivot: {fileID: 2005958262}
   openRotation: {x: 0, y: -90, z: 0}
   openSpeed: 2
-  isLocked: 0
+  isLocked: 1
 --- !u!65 &6198866650755254486
 BoxCollider:
   m_ObjectHideFlags: 0

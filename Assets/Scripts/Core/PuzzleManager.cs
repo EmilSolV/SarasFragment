@@ -55,6 +55,7 @@ public class PuzzleManager : MonoBehaviour
         tiemposPorPuzzle[puzzleName] = tiempoParcial;
         ultimoPuzzleTime = ahora;
 
+        MetricManager.Instance.RegistrarEvento("MaxLoopsAlcanzado", puzzleName);
         // Registrar el tiempo parcial en MetricManager
         MetricManager.Instance.RegistrarEvento(puzzleName, tiempoParcial);
         if (todosLosPuzzlesResueltos)
