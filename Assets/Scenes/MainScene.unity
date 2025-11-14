@@ -11341,52 +11341,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 972441084}
   m_SourcePrefab: {fileID: 100100000, guid: 4f958363cf78f3049b39fb9d7fa40a01, type: 3}
---- !u!1 &580121527
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 580121528}
-  - component: {fileID: 580121529}
-  m_Layer: 0
-  m_Name: LocalizadorNumero
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &580121528
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 580121527}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 2.725821e-21, w: 1}
-  m_LocalPosition: {x: -4.754, y: 2.132702, z: 1.961}
-  m_LocalScale: {x: 0.91141087, y: 0.91141087, z: 0.91141087}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 932020092}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &580121529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 580121527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e3e246229a87c141b481257c7acdfc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ReveladorPorLuz
-  luzUV: {fileID: 1636841604}
-  distanciaActivacion: 2
 --- !u!1 &605984625
 GameObject:
   m_ObjectHideFlags: 0
@@ -17888,8 +17842,7 @@ Transform:
   - {fileID: 120832491}
   - {fileID: 1392451077}
   - {fileID: 1072746215}
-  - {fileID: 580121528}
-  - {fileID: 1740929290}
+  - {fileID: 942573509}
   - {fileID: 111031492}
   - {fileID: 438175263}
   - {fileID: 6755220273512281549}
@@ -17907,10 +17860,10 @@ GameObject:
   - component: {fileID: 942573509}
   - component: {fileID: 942573507}
   - component: {fileID: 942573508}
-  - component: {fileID: 942573510}
+  - component: {fileID: 942573511}
   m_Layer: 0
   m_Name: NumeroUV
-  m_TagString: Untagged
+  m_TagString: NumeroUV
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17992,8 +17945,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -18010,8 +17963,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25.9
-  m_fontSizeBase: 25.9
+  m_fontSize: 13.9
+  m_fontSizeBase: 13.9
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -18064,32 +18017,39 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 942573506}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.174}
-  m_LocalScale: {x: 0.21334, y: 0.21334, z: 0.21334}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.9524244}
+  m_LocalScale: {x: 0.1944404, y: 0.1944404, z: 0.1944404}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1740929290}
+  m_Father: {fileID: 932020092}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.575, y: -0.242}
+  m_AnchoredPosition: {x: -2.922, y: 1.5506836}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &942573510
-MonoBehaviour:
+--- !u!65 &942573511
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 942573506}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e3e246229a87c141b481257c7acdfc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ReveladorUV
-  luzUV: {fileID: 1636841604}
-  distanciaActivacion: 3
+  serializedVersion: 3
+  m_Size: {x: 2.3551114, y: 2.7651238, z: 2.5513601}
+  m_Center: {x: -8.739617, y: 0.6062047, z: -1.275679}
 --- !u!4 &946412869 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -7399816624496865512, guid: 2a60e3feb0903384abcb1ee652264229, type: 3}
@@ -25106,7 +25066,7 @@ MonoBehaviour:
   pivot: {fileID: 1392451077}
   openRotation: {x: 0, y: -90, z: 0}
   openSpeed: 2
-  isLocked: 1
+  isLocked: 0
 --- !u!23 &1244701409
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28624,6 +28584,7 @@ GameObject:
   - component: {fileID: 1636841606}
   - component: {fileID: 1636841604}
   - component: {fileID: 1636841605}
+  - component: {fileID: 1636841607}
   m_Layer: 0
   m_Name: LuzUv
   m_TagString: Untagged
@@ -28642,10 +28603,10 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 0.61905193, g: 0.26637593, b: 0.7735849, a: 1}
-  m_Intensity: 13.24
-  m_Range: 5.4136934
-  m_SpotAngle: 19.507696
-  m_InnerSpotAngle: 4.9554577
+  m_Intensity: 40
+  m_Range: 9.46
+  m_SpotAngle: 33.797203
+  m_InnerSpotAngle: 19.244965
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -28740,6 +28701,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 111031492}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &1636841607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636841603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac7217e4e212cdf4daecd5b96fe33a44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReveladorPorRaycast
+  distanciaMaxima: 5
+  tagNumero: NumeroUV
 --- !u!1 &1647976815
 GameObject:
   m_ObjectHideFlags: 3
@@ -29540,38 +29515,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8338988566280778637, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
   m_PrefabInstance: {fileID: 1897113116}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1740929288
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1740929290}
-  m_Layer: 0
-  m_Name: LocalizadorNumeroTest
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1740929290
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1740929288}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.4509656, y: 1.771245, z: 1.7938391}
-  m_LocalScale: {x: 0.91141087, y: 0.91141087, z: 0.91141087}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 942573509}
-  m_Father: {fileID: 932020092}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1748339859
 GameObject:
   m_ObjectHideFlags: 0
@@ -30995,7 +30938,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HighlightEffect
   highlightColor: {r: 1, g: 1, b: 1, a: 1}
   highlightAlpha: 0.5
-  isHighlighted: 0
+  isHighlighted: 1
 --- !u!1 &1923154586
 GameObject:
   m_ObjectHideFlags: 0
@@ -40416,7 +40359,7 @@ MonoBehaviour:
   pivot: {fileID: 2005958262}
   openRotation: {x: 0, y: -90, z: 0}
   openSpeed: 2
-  isLocked: 1
+  isLocked: 0
 --- !u!65 &6198866650755254486
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -43082,7 +43025,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9142341001566883876}
   - component: {fileID: 9142341001566883879}
-  - component: {fileID: 9142341001566883878}
   - component: {fileID: 9142341001566883877}
   m_Layer: 0
   m_Name: LP_SF
@@ -43897,21 +43839,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.38900727, y: 0.6213469, z: 0.24870165}
   m_Center: {x: 0.080808654, y: 0.26875162, z: -0.024515426}
---- !u!114 &9142341001566883878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8479097358130498206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: baee142b28f1fc34d9957c55fd942f92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HighlightEffect
-  highlightColor: {r: 1, g: 1, b: 1, a: 1}
-  highlightAlpha: 0.5
-  isHighlighted: 0
 --- !u!114 &9142341001566883879
 MonoBehaviour:
   m_ObjectHideFlags: 0

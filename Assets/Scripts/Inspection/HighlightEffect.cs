@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class HighlightEffect : MonoBehaviour
 {
@@ -11,10 +11,39 @@ public class HighlightEffect : MonoBehaviour
 
     void Start()
     {
-        rend = GetComponent<Renderer>();
-        if (rend != null)
-            originalColor = rend.material.color;
+        Renderer rend = GetComponent<Renderer>();
+        if (rend == null)
+        {
+            Debug.LogWarning("HighlightEffect: No Renderer en " + gameObject.name);
+            return;
+        }
+
+        Material mat = rend.material;
+        if (mat.HasProperty("_Color"))
+        {
+            originalColor = mat.color;
+        }
+        else if (mat.HasProperty("_BaseColor"))
+        {
+            originalColor = mat.GetColor("_BaseColor");
+        }
+        else
+        {
+            Debug.LogWarning("HighlightEffect: Shader sin propiedad de color en " + gameObject.name + " → " + mat.shader.name);
+        }
     }
+
+
+
+
+
+
+    //void Start()
+    //{
+    //    rend = GetComponent<Renderer>();
+    //    if (rend != null)
+    //        originalColor = rend.material.color;
+    //}
 
     public void HighlightOn()
     {

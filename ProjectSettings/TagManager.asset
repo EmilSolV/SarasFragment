@@ -12,6 +12,7 @@ TagManager:
   - Termotanque
   - Enchufe
   - Floor
+  - NumeroUV
   layers:
   - Default
   - TransparentFX
