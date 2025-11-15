@@ -4,6 +4,8 @@ using TMPro;
 public class BañoPuzzleController : MonoBehaviour
 {
     [Header("Referencias")]
+    [Header("Ficha")]
+    public FichaVisualInteractiva fichaVisual;
     public GameObject polaroidBaño; // Asignalo en el Inspector
     public GameObject vaporEffect;
     public GameObject vaporOverlay;
@@ -11,8 +13,10 @@ public class BañoPuzzleController : MonoBehaviour
     public Camera playerCamera;
     public float distanciaInteraccion = 3f;
     public DoorController puertaParaDesbloquear; // Asigna en el inspector
+    public AudioSource duchaAudioSource;
 
     private bool duchaActivada = false;
+    private bool puzzleActivado = false;
 
     void Update()
     {
@@ -23,52 +27,74 @@ public class BañoPuzzleController : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, distanciaInteraccion))
             {
-                if (hit.collider.CompareTag("Ducha") && !duchaActivada)
+                if (hit.collider.CompareTag("Ducha"))
                 {
-                    ResolverPuzzle();
+                    ActivarDuchaSegunEstado();
                 }
             }
         }
     }
 
-    void ResolverPuzzle()
+    private void ActivarDuchaSegunEstado()
     {
-        ActivarDucha();
-        if (puertaParaDesbloquear != null)
-            puertaParaDesbloquear.UnlockDoor();
-        PuzzleManager.Instance.PuzzleResuelto("Puzzle_2");
+        if (!puzzleActivado)
+        {
+            // Alternar la ducha mientras el puzzle no se resolvió
+            if (!duchaActivada)
+            {
+                duchaAudioSource?.Play();
+                duchaActivada = true;
+
+                if (fichaVisual != null && fichaVisual.EstaConectada)
+                {
+                    ActivarPuzzle();
+                    DialogManager.Instance.ShowMessage("Cuanto vapor. Casi no veo.", 5f);
+                }
+                else
+                {
+                    DialogManager.Instance.ShowMessage("Mmm... el agua fría no parece servir de mucho.", 5f);
+                }
+            }
+            else
+            {
+                // Apagar la ducha si aún no está el puzzle resuelto
+                duchaAudioSource?.Stop();
+                duchaActivada = false;
+                DialogManager.Instance.ShowMessage("Mejor así, estaba gastando agua...", 5f);
+            }
+        }
+        else
+        {
+            // Puzzle ya activado → no se apaga nunca más
+            if (!duchaActivada)
+            {
+                duchaAudioSource?.Play();
+                duchaActivada = true;
+            }
+
+            DialogManager.Instance.ShowMessage("Está trabada...", 5f);
+        }
     }
 
-    void ActivarDucha()
+    private void ActivarPuzzle()
     {
-        Debug.Log("Ducha activada");
+        puzzleActivado = true;
 
-        if (vaporEffect != null)
-        {
-            vaporEffect.SetActive(true);
-            Debug.Log("Vapor activado");
-        }
-
-        if (vaporOverlay != null)
-        {
-            vaporOverlay.SetActive(true);
-            Debug.Log("Overlay activado");
-        }
+        vaporEffect?.SetActive(true);
+        vaporOverlay?.SetActive(true);
 
         if (codigoText != null)
         {
-            // Activa el Canvas (padre del texto)
             codigoText.transform.parent.gameObject.SetActive(true);
-            codigoText.text = "1812"; // Podés cambiar el código si querés
+            codigoText.text = "1812";
             codigoText.gameObject.SetActive(true);
-            Debug.Log("Código revelado");
         }
-        if (polaroidBaño != null)
-        {
-            polaroidBaño.SetActive(true);
-            Debug.Log("Polaroid del baño activada");
-        }
-        duchaActivada = true;
+
+        polaroidBaño?.SetActive(true);
+
+        puertaParaDesbloquear?.UnlockDoor();
         PuzzleManager.Instance.PuzzleResuelto("Puzzle_2");
+
+        Debug.Log("Puzzle de baño resuelto");
     }
 }

@@ -9,6 +9,10 @@ TagManager:
   - agarrable
   - Ducha
   - Velador
+  - Termotanque
+  - Enchufe
+  - Floor
+  - NumeroUV
   layers:
   - Default
   - TransparentFX

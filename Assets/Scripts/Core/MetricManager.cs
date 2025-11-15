@@ -124,6 +124,16 @@ public class MetricManager : MonoBehaviour
         }
     }
 
+    public void RegistrarInteraccionObjeto(string nombreObjeto)
+    {
+        if (!MetricManager.Instance.eventosActuales.ContainsKey("InteraccionObjetos"))
+        {
+            MetricManager.Instance.eventosActuales["InteraccionObjetos"] = new List<string>();
+        }
+        var lista = MetricManager.Instance.eventosActuales["InteraccionObjetos"] as List<string>;
+        lista.Add(nombreObjeto);
+    }
+
 
     //// Obtiene el valor de un evento en la sesión actual
     //public float ObtenerValor(string nombreEvento)
@@ -154,7 +164,9 @@ public class MetricManager : MonoBehaviour
                     if (v is float f)
                         return f.ToString("0.##");
                     if (v is System.TimeSpan ts)
-                        return ts.ToString(@"hh\:mm\:ss\.fff"); // Formato legible para tiempos
+                        return ts.ToString(@"hh\:mm\:ss\.fff");
+                    if (v is List<string> lista)
+                        return string.Join(";", lista); // Convierte la lista en un string separado por ;
                     return v?.ToString() ?? "";
                 })
                 .ToList();

@@ -2,26 +2,48 @@ using UnityEngine;
 
 public class PlayerReturnManager : MonoBehaviour
 {
+    public Transform player;
+    private CharacterController controller;
+
     void Start()
     {
-        // Solo guardar la posición inicial si aún no se ha guardado
+        if (player == null)
+            player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        controller = player.GetComponent<CharacterController>();
+
         if (PlayerReturnData.initialPosition == Vector3.zero)
         {
-            PlayerReturnData.initialPosition = transform.position;
+            PlayerReturnData.initialPosition = player.position;
         }
-        Debug.Log("Posición inicial guardada: " + transform.position);
+
+        Debug.Log("Posición inicial guardada: " + player.position);
     }
 
     public void MoveToReturnPosition()
     {
-        if (PlayerReturnData.returnPosition != Vector3.zero)
-        {
-            transform.position = PlayerReturnData.returnPosition;
-            PlayerReturnData.returnPosition = Vector3.zero;
-        }
-        else
-        {
-            transform.position = PlayerReturnData.initialPosition;
-        }
+        if (controller != null)
+            controller.enabled = false;
+
+        Vector3 destino = PlayerReturnData.returnPosition != Vector3.zero
+            ? PlayerReturnData.returnPosition
+            : PlayerReturnData.initialPosition;
+
+        player.position = destino;
+        PlayerReturnData.returnPosition = Vector3.zero;
+
+        if (controller != null)
+            controller.enabled = true;
+    }
+
+    public void ForceTeleport(Vector3 targetPosition)
+    {
+        if (controller != null)
+            controller.enabled = false;
+
+        player.position = targetPosition;
+
+        if (controller != null)
+            controller.enabled = true;
     }
 }
