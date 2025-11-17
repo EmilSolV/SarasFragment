@@ -1,81 +1,92 @@
-Ôªøusing UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 
 public class CodigoNotebook : MonoBehaviour
 {
+    [Header("UI")]
     public TMP_InputField inputCodigo;
-    public Button botonConfirmar;
-    public GameObject polaroid;
-    public string codigoCorrecto = "181222"; // ‚Üê tu c√≥digo personalizado
-    public GameObject canvasCodigo;
+    public TMP_Text textoFeedback;
 
-    void OnMouseDown()
+    [Header("Logica")]
+    public string codigoCorrecto = "181222";
+    public GameObject polaroid;       // objeto a revelar
+    public Animator polaroidAnimator; // opcional, para animaciÛn al revelar
+
+    private Button botonConfirmar;
+    private bool resuelto = false;
+
+    void Awake()
     {
-        canvasCodigo.SetActive(true); // activa el canvas
-        StartCoroutine(ForzarFoco()); // enfoca el campo
+        // Buscar el botÛn autom·ticamente en hijos
+        botonConfirmar = transform.Find("BotonConfirmar")?.GetComponent<Button>();
+        if (botonConfirmar != null)
+            botonConfirmar.onClick.AddListener(Validar);
+        else
+            Debug.LogWarning("No se encontrÛ el botÛn Confirmar en hijos de " + gameObject.name);
+
+        if (inputCodigo != null)
+            inputCodigo.onEndEdit.AddListener(OnEndEdit);
+
+        SetFeedback("");
     }
 
-
-
-    void Update()
+    void OnEnable()
     {
-        if (inputCodigo != null && inputCodigo.isFocused)
+        if (inputCodigo != null)
         {
-            Debug.Log("üü¢ El campo InputCodigo est√° enfocado");
+            inputCodigo.text = "";
+            inputCodigo.Select();
+            inputCodigo.ActivateInputField();
         }
+
+        SetFeedback("");
     }
 
-
-
-
-
-
-    void Start()
-
+    void OnEndEdit(string value)
     {
-        botonConfirmar.onClick.AddListener(ValidarCodigo);
-        inputCodigo.onValueChanged.AddListener(DetectarEscritura);
-
-        if (polaroid != null)
-            polaroid.SetActive(false);
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
+            Validar();
     }
 
-    void DetectarEscritura(string texto)
+    public void Validar()
     {
-        Debug.Log("‚úçÔ∏è Escribiendo: " + texto);
-    }
+        Debug.Log("VALIDAR EJECUTADO");
 
-    void ValidarCodigo()
-    {
-        string codigoIngresado = inputCodigo.text.Trim();
+        if (resuelto) return;
 
-        if (codigoIngresado == codigoCorrecto)
+        string valor = inputCodigo.text.Trim();
+        Debug.Log("CÛdigo ingresado: " + valor);
+
+        if (valor == codigoCorrecto)
         {
-            Debug.Log("‚úÖ C√≥digo correcto: se muestra el polaroid");
-            if (polaroid != null)
-                polaroid.SetActive(true);
+            resuelto = true;
+            SetFeedback("CÛdigo correcto");
+            RevelarPolaroid();
         }
         else
         {
-            Debug.Log("‚ùå C√≥digo incorrecto");
-            // Pod√©s agregar texto de error o efectos aqu√≠
+            SetFeedback("CÛdigo incorrecto");
+            var anim = GetComponent<Animator>();
+            if (anim) anim.SetTrigger("Shake");
         }
     }
-    void OnEnable()
+
+    void RevelarPolaroid()
     {
-        StartCoroutine(ForzarFoco());
+        if (polaroid != null)
+            polaroid.SetActive(true);
+
+        if (polaroidAnimator != null)
+            polaroidAnimator.SetTrigger("Revelar");
     }
 
-    IEnumerator ForzarFoco()
+    void SetFeedback(string msg)
     {
-        yield return new WaitForSeconds(0.1f); // da tiempo a que todo se active
-        inputCodigo.text = ""; // limpia el campo
-        inputCodigo.ActivateInputField(); // enfoca
-        inputCodigo.Select(); // selecciona
-        Debug.Log("üü¢ Campo activado manualmente");
+        if (textoFeedback != null)
+        {
+            textoFeedback.text = msg;
+            textoFeedback.color = (msg == "CÛdigo correcto") ? Color.green : Color.red;
+        }
     }
-
-
 }

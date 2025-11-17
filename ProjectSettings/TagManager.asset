@@ -13,6 +13,7 @@ TagManager:
   - Enchufe
   - Floor
   - NumeroUV
+  - ParedUV
   layers:
   - Default
   - TransparentFX
@@ -24,8 +25,8 @@ TagManager:
   - grabLayer
   - Book
   - Obstacles
-  - 
-  - 
+  - UIWorld
+  - NotebookInteractivo
   - 
   - 
   - 
