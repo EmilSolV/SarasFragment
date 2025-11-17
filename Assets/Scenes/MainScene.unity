@@ -32432,7 +32432,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FPCamera
   playerBody: {fileID: 1729613020}
-  mouseSensitivity: 2
+  sensibilidadX: 200
+  sensibilidadY: 200
 --- !u!20 &1938666371 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 8944336655422409496, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
@@ -32753,7 +32754,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FPCamera
   playerBody: {fileID: 1729613020}
-  mouseSensitivity: 2
+  sensibilidadX: 100
+  sensibilidadY: 100
 --- !u!114 &1958660096
 MonoBehaviour:
   m_ObjectHideFlags: 0
