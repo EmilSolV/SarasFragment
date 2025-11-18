@@ -280,7 +280,9 @@ namespace StarterAssets
             else
             {
                 // Movimiento basado en orientación de la cámara (TPS)
-                targetDirection = Quaternion.Euler(0.0f, _mainCamera.transform.eulerAngles.y, 0.0f) * inputDirection;
+                //targetDirection = Quaternion.Euler(0.0f, _mainCamera.transform.eulerAngles.y, 0.0f) * inputDirection;
+                // Movimiento basado en orientación del jugador (TPS)
+                targetDirection = transform.forward * _input.move.y + transform.right * _input.move.x;
             }
 
             _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) +
