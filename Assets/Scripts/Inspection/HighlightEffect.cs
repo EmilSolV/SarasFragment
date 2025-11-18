@@ -3,65 +3,61 @@
 public class HighlightEffect : MonoBehaviour
 {
     private Renderer rend;
-    private Color originalColor;
+    private Material mat;
+
+    private Color originalTint;
+    private bool isHighlighted = false;
+
     public Color highlightColor = Color.white;
     [Range(0f, 1f)]
-    public float highlightAlpha = 0.5f; // Opacidad del color de highlight (0 = transparente, 1 = opaco)
-    public bool isHighlighted = false;
+    public float highlightAlpha = 0.5f;
 
     void Start()
     {
-        Renderer rend = GetComponent<Renderer>();
+        rend = GetComponent<Renderer>();
         if (rend == null)
         {
             Debug.LogWarning("HighlightEffect: No Renderer en " + gameObject.name);
             return;
         }
 
-        Material mat = rend.material;
+        mat = rend.material;
+
+        // Buscamos el tint del color base (si existe)
         if (mat.HasProperty("_Color"))
-        {
-            originalColor = mat.color;
-        }
+            originalTint = mat.color;
         else if (mat.HasProperty("_BaseColor"))
-        {
-            originalColor = mat.GetColor("_BaseColor");
-        }
+            originalTint = mat.GetColor("_BaseColor");
         else
         {
-            Debug.LogWarning("HighlightEffect: Shader sin propiedad de color en " + gameObject.name + " → " + mat.shader.name);
+            // Si el shader no tiene color base, creamos uno
+            originalTint = Color.white;
         }
     }
 
-
-
-
-
-
-    //void Start()
-    //{
-    //    rend = GetComponent<Renderer>();
-    //    if (rend != null)
-    //        originalColor = rend.material.color;
-    //}
-
     public void HighlightOn()
     {
-        if (rend != null && !isHighlighted)
-        {
-            Color c = highlightColor;
-            c.a = highlightAlpha;
-            rend.material.color = c;
-            isHighlighted = true;
-        }
+        if (mat == null || isHighlighted) return;
+
+        Color tint = Color.Lerp(originalTint, highlightColor, highlightAlpha);
+
+        if (mat.HasProperty("_Color"))
+            mat.color = tint;
+        else if (mat.HasProperty("_BaseColor"))
+            mat.SetColor("_BaseColor", tint);
+
+        isHighlighted = true;
     }
 
     public void HighlightOff()
     {
-        if (rend != null && isHighlighted)
-        {
-            rend.material.color = originalColor;
-            isHighlighted = false;
-        }
+        if (mat == null || !isHighlighted) return;
+
+        if (mat.HasProperty("_Color"))
+            mat.color = originalTint;
+        else if (mat.HasProperty("_BaseColor"))
+            mat.SetColor("_BaseColor", originalTint);
+
+        isHighlighted = false;
     }
 }

@@ -2,10 +2,8 @@ using UnityEngine;
 
 public class Grabbable : MonoBehaviour, IGrabbable
 {
-    private Vector3 initialPosition;
-    private Quaternion initialRotation;
-    private Rigidbody rb;
-    public bool resetOnLoop = true; // Puedes cambiar esto según el estado del puzzle
+    public bool resetOnLoop = true;
+    public string onGrabMessage = "";
 
     [Header("Sonidos Personalizados (Opcionales)")]
     public AudioClip customPickupSound;
@@ -13,6 +11,10 @@ public class Grabbable : MonoBehaviour, IGrabbable
 
     private AudioClip pickupSound;
     private AudioClip hitGroundSound;
+    private Vector3 initialPosition;
+    private Quaternion initialRotation;
+    private Rigidbody rb;
+    private bool isFirstTimeGrabbed = true;
 
     void Awake()
     {
@@ -44,6 +46,13 @@ public class Grabbable : MonoBehaviour, IGrabbable
 
         if (rb != null)
             rb.isKinematic = true;
+
+        if (isFirstTimeGrabbed)
+        {
+            if (!string.IsNullOrEmpty(onGrabMessage))
+                DialogManager.Instance.ShowMessage(onGrabMessage, 5f);
+            isFirstTimeGrabbed = false;
+        }
         MetricManager.Instance.RegistrarInteraccionObjeto(this.name);
     }
 

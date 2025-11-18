@@ -1,13 +1,13 @@
 using UnityEngine;
 using TMPro;
-using System.Collections.Generic;
+using System.Collections;
 
 public class DialogManager : MonoBehaviour
 {
     public static DialogManager Instance { get; private set; }
     public TextMeshProUGUI dialogText;
-    private Queue<(string, float)> messageQueue = new Queue<(string, float)>();
-    private bool isShowing = false;
+
+    private Coroutine currentDialogCoroutine;
 
     void Awake()
     {
@@ -19,31 +19,36 @@ public class DialogManager : MonoBehaviour
 
     public void ShowMessage(string message, float duration = 3f)
     {
-        messageQueue.Enqueue((message, duration));
-        if (!isShowing)
-            StartCoroutine(ProcessQueue());
+        // Si ya hay un diálogo, lo corto al instante
+        if (currentDialogCoroutine != null)
+        {
+            StopCoroutine(currentDialogCoroutine);
+            currentDialogCoroutine = null;
+        }
+
+        // Muestro el nuevo mensaje ya mismo
+        dialogText.text = message;
+
+        // Inicio coroutine para limpiar después del tiempo
+        currentDialogCoroutine = StartCoroutine(ClearAfterDelay(duration));
     }
 
-    private System.Collections.IEnumerator ProcessQueue()
+    private IEnumerator ClearAfterDelay(float duration)
     {
-        isShowing = true;
-        while (messageQueue.Count > 0)
-        {
-            var (msg, dur) = messageQueue.Dequeue();
-            if (dialogText != null)
-                dialogText.text = msg;
-            yield return new WaitForSeconds(dur);
-        }
-        if (dialogText != null)
-            dialogText.text = "";
-        isShowing = false;
+        yield return new WaitForSeconds(duration);
+
+        dialogText.text = "";
+        currentDialogCoroutine = null;
     }
 
     public void ClearMessage()
     {
-        messageQueue.Clear();
-        if (dialogText != null)
-            dialogText.text = "";
-        isShowing = false;
+        if (currentDialogCoroutine != null)
+        {
+            StopCoroutine(currentDialogCoroutine);
+            currentDialogCoroutine = null;
+        }
+
+        dialogText.text = "";
     }
 }
