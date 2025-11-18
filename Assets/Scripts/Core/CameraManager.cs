@@ -33,37 +33,76 @@ public class CameraManager : MonoBehaviour
             SetCameraMode(isFirstPerson);
         }
     }
-
     void SetCameraMode(bool firstPerson)
     {
         MetricManager.Instance.RegistrarEvento("CambioCamara", 1f);
 
-        // ?? Forzar salida de inspección si está activa
         if (puzzleVelador != null)
             puzzleVelador.ForzarSalidaInspeccion();
 
+        // Activar/desactivar objetos de cámara
         firstPersonCamera.SetActive(firstPerson);
         mainCamera.SetActive(!firstPerson);
-        //playerMainCamera.SetActive(!firstPerson);
 
-        playerController.isFirstPerson = firstPerson;
+        // Activar/desactivar scripts específicos
+        var fp = firstPersonCamera.GetComponent<FPCamera>();
+        if (fp) fp.enabled = firstPerson;
 
+        var tp = mainCamera.GetComponent<TPCamera>();
+        if (tp) tp.enabled = !firstPerson;
+
+        // Ajuste opcional de transform compartido si lo usás
         if (playerCameraTransform != null)
         {
             if (firstPerson)
             {
                 playerCameraTransform.localPosition = new Vector3(0f, 1.6f, 0f);
-                //playerCameraTransform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+                // rotación vertical la maneja FPCamera
             }
             else
             {
-                playerCameraTransform.localPosition = new Vector3(0.5f, 1.6f, -2.5f);
+                playerCameraTransform.localPosition = new Vector3(0.5f, 1.6f, -3.6f);
                 playerCameraTransform.localRotation = Quaternion.Euler(10f, 0f, 0f);
             }
         }
 
+        // Informar al controlador si lo necesitás
+        playerController.isFirstPerson = firstPerson;
+
         Debug.Log($"Cámara activa: {(firstPerson ? "1ra persona" : "3ra persona")}");
     }
+
+
+    //void SetCameraMode(bool firstPerson)
+    //{
+    //    MetricManager.Instance.RegistrarEvento("CambioCamara", 1f);
+
+    //    // ?? Forzar salida de inspección si está activa
+    //    if (puzzleVelador != null)
+    //        puzzleVelador.ForzarSalidaInspeccion();
+
+    //    firstPersonCamera.SetActive(firstPerson);
+    //    mainCamera.SetActive(!firstPerson);
+    //    //playerMainCamera.SetActive(!firstPerson);
+
+    //    playerController.isFirstPerson = firstPerson;
+
+    //    if (playerCameraTransform != null)
+    //    {
+    //        if (firstPerson)
+    //        {
+    //            playerCameraTransform.localPosition = new Vector3(0f, 1.6f, 0f);
+    //            //playerCameraTransform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+    //        }
+    //        else
+    //        {
+    //            playerCameraTransform.localPosition = new Vector3(0.5f, 1.6f, -2.5f);
+    //            playerCameraTransform.localRotation = Quaternion.Euler(10f, 0f, 0f);
+    //        }
+    //    }
+
+    //    Debug.Log($"Cámara activa: {(firstPerson ? "1ra persona" : "3ra persona")}");
+    //}
 
 
 

@@ -33542,7 +33542,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1938666364}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d32d19154f0b0eb4d9c2c3e5f133447f, type: 3}
   m_Name: 
@@ -33555,6 +33555,26 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 8944336655422409496, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
   m_PrefabInstance: {fileID: 1943360206}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1938666375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938666364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b17211c289b15e4c95b47ac6d9b8a69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TPCamera
+  target: {fileID: 1729613020}
+  playerBody: {fileID: 1729613020}
+  offset: {x: 0.5, y: 1.5, z: -1.682}
+  sensibilidadX: 80
+  sensibilidadY: 80
+  minPitch: -30
+  maxPitch: 60
+  smoothTime: 0.12
 --- !u!1001 &1943360206
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33673,6 +33693,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8944336655422409498, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1938666366}
+    - targetCorrespondingSourceObject: {fileID: 8944336655422409498, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1938666375}
   m_SourcePrefab: {fileID: 100100000, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
 --- !u!1 &1950185182
 GameObject:
@@ -33870,8 +33893,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FPCamera
   playerBody: {fileID: 1729613020}
-  sensibilidadX: 100
-  sensibilidadY: 100
+  sensibilidadX: 80
+  sensibilidadY: 80
 --- !u!114 &1958660096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43214,7 +43237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DoorController
   pivot: {fileID: 2005958262}
-  openRotation: {x: 0, y: -90, z: 0}
+  openRotation: {x: 0, y: 90, z: 0}
   openSpeed: 2
   isLocked: 0
 --- !u!65 &6198866650755254486
