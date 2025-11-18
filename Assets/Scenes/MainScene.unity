@@ -18430,7 +18430,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 9145651483243669601, guid: fccfeab6ae2453f45aba586dc2e4c815, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -18475,15 +18475,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: 22
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fccfeab6ae2453f45aba586dc2e4c815, type: 2}
+  m_sharedMaterial: {fileID: 9145651483243669601, guid: fccfeab6ae2453f45aba586dc2e4c815, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278519141
-  m_fontColor: {r: 0.3962264, g: 0.02055892, b: 0.02055892, a: 1}
+    rgba: 4281417392
+  m_fontColor: {r: 0.6886792, g: 0.24340305, b: 0.19166073, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -18555,7 +18555,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 942573506}
   m_LocalRotation: {x: 0.13195221, y: -0, z: -0, w: 0.9912561}
-  m_LocalPosition: {x: 0, y: 0, z: 1.389}
+  m_LocalPosition: {x: 0, y: 0, z: 1.402}
   m_LocalScale: {x: 0.1944404, y: 0.1944404, z: 0.1944404}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18563,7 +18563,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 15.165, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.07, y: 0.431}
+  m_AnchoredPosition: {x: -2.125, y: 0.478}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &942573511
@@ -18585,8 +18585,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.3551114, y: 2.7651238, z: 0.12369849}
-  m_Center: {x: -8.739617, y: 0.6062047, z: -0.061848126}
+  m_Size: {x: 2.841915, y: 2.7495031, z: 0.12369848}
+  m_Center: {x: -9.399613, y: 1.5079515, z: -0.061842956}
 --- !u!4 &946412869 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -7399816624496865512, guid: 2a60e3feb0903384abcb1ee652264229, type: 3}
@@ -51744,7 +51744,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 19.794, y: 0.016, z: -116.528}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.6276, y: 1.6276, z: 1.6276}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8567250960010745296}
@@ -51839,7 +51839,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 19.639864, y: -0.0033912063, z: -116.893}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.6276, y: 1.6276, z: 1.6276}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8567250959962269906}
@@ -51935,7 +51935,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 19.639864, y: 0.016, z: -116.316}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.6276, y: 1.6276, z: 1.6276}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8567250959483270641}

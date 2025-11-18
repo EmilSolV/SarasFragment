@@ -259,15 +259,15 @@ namespace StarterAssets
             Vector3 inputDirection = new Vector3(_input.move.x, 0.0f, _input.move.y).normalized;
 
             // ✅ Solo rotar automáticamente si NO estás en primera persona
-            if (_input.move != Vector2.zero && !isFirstPerson)
-            {
-                _targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg +
-                                  _mainCamera.transform.eulerAngles.y;
-                float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity,
-                    RotationSmoothTime);
+            //if (_input.move != Vector2.zero && !isFirstPerson)
+            //{
+            //    _targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg +
+            //                      _mainCamera.transform.eulerAngles.y;
+            //    float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity,
+            //        RotationSmoothTime);
 
-                transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
-            }
+            //    transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
+            //}
 
             // ✅ Movimiento según modo de cámara
             Vector3 targetDirection;
