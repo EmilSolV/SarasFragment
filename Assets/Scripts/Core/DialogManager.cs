@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 using System.Collections;
 
@@ -17,19 +17,16 @@ public class DialogManager : MonoBehaviour
             Destroy(gameObject);
     }
 
+    // --- MÉTODO EXISTENTE (lo dejo igual) ---
     public void ShowMessage(string message, float duration = 3f)
     {
-        // Si ya hay un di�logo, lo corto al instante
         if (currentDialogCoroutine != null)
         {
             StopCoroutine(currentDialogCoroutine);
             currentDialogCoroutine = null;
         }
 
-        // Muestro el nuevo mensaje ya mismo
         dialogText.text = message;
-
-        // Inicio coroutine para limpiar despu�s del tiempo
         currentDialogCoroutine = StartCoroutine(ClearAfterDelay(duration));
     }
 
@@ -48,6 +45,27 @@ public class DialogManager : MonoBehaviour
             StopCoroutine(currentDialogCoroutine);
             currentDialogCoroutine = null;
         }
+
+        dialogText.text = "";
+    }
+
+
+    // -------------------------------------------------------------------
+    // 🆕 MÉTODO NUEVO: SHOW + WAIT (para poder secuenciar diálogos fácil)
+    // -------------------------------------------------------------------
+    public IEnumerator ShowAndWait(string message, float duration = 3f)
+    {
+        // Cancelo diálogo previo
+        if (currentDialogCoroutine != null)
+        {
+            StopCoroutine(currentDialogCoroutine);
+            currentDialogCoroutine = null;
+        }
+
+        dialogText.text = message;
+
+        // Espero el tiempo del diálogo
+        yield return new WaitForSeconds(duration);
 
         dialogText.text = "";
     }

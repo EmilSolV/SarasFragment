@@ -65,7 +65,7 @@ public class AudioManager : MonoBehaviour
     private IEnumerator HabilitarSFXConDelay()
     {
         sfxEnabled = false;
-        yield return new WaitForSeconds(2f); // Espera 2 segundos
+        yield return new WaitForSeconds(4f); // Espera 2 segundos
         sfxEnabled = true;
     }
 }

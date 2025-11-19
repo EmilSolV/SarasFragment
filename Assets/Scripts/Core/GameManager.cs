@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -10,11 +11,20 @@ public class GameManager : MonoBehaviour
         string sessionName = GenerateSessionName();
         MetricManager.Instance.IniciarSesion(sessionName);
 
-        DialogManager.Instance.ShowMessage("Bienvenido a Sara's Fragments", 4f);
-        DialogManager.Instance.ShowMessage("Intenta resolver el puzzle de la habitación antes que se acabe el tiempo.", 5f);
-        DialogManager.Instance.ShowMessage("Si se acaba deberás comenzarlo desde el principio.", 5f);
-        
+        StartCoroutine(ShowInitialDialog());
     }
+
+    IEnumerator ShowInitialDialog()
+    {
+        yield return new WaitForSeconds(2f);
+
+        yield return DialogManager.Instance.ShowAndWait("Bienvenido a Sara's Fragments", 4f);
+
+        yield return DialogManager.Instance.ShowAndWait("Intenta resolver el puzzle de la habitación antes que se acabe el tiempo.", 5f);
+
+        yield return DialogManager.Instance.ShowAndWait("Si se acaba deberás comenzarlo desde el principio.", 5f);
+    }
+
 
     void Awake()
     {
