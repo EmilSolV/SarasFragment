@@ -32,11 +32,18 @@ public class DoorInteractionManager : MonoBehaviour
                 {
                     Debug.Log("Puerta detectada, ejecutando ToggleDoor");
                     door.ToggleDoor();
+                    return;
                 }
-                else
+
+                IDrawerInteractable drawer = hit.collider.GetComponentInParent<IDrawerInteractable>();
+                if (drawer != null)
                 {
-                    Debug.Log("El objeto tocado no tiene IDoorInteractable");
+                    Debug.Log("Cajón detectado, ejecutando ToggleDrawer");
+                    drawer.ToggleDrawer();
+                    return;
                 }
+
+                Debug.Log("El objeto tocado no tiene interacción de puerta ni cajón");
             }
             else
             {
