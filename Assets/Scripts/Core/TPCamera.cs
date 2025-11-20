@@ -23,6 +23,11 @@ public class TPCamera : MonoBehaviour
     private float pitch = 10f;
     private Vector3 velocity = Vector3.zero;
 
+    [Header("Recorte por obstáculos")]
+    public LayerMask obstacleMask;
+    public float minDistance = 0.5f;
+    public float maxDistance = 3f;
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -49,7 +54,21 @@ public class TPCamera : MonoBehaviour
         Quaternion finalRotation = Quaternion.Euler(pitch, playerBody.eulerAngles.y, 0f);
 
         // Posición deseada detrás del jugador
-        Vector3 desiredPos = target.position + yawRotation * offset;
+        //Vector3 desiredPos = target.position + yawRotation * offset;
+
+        Vector3 baseOffset = yawRotation * offset;
+        Vector3 desiredPos = target.position + baseOffset;
+
+        // Raycast desde el jugador hacia la posición deseada
+        if (Physics.Raycast(target.position, baseOffset.normalized, out RaycastHit hit, baseOffset.magnitude, obstacleMask))
+        {
+            float clippedDistance = Mathf.Clamp(hit.distance, minDistance, maxDistance);
+            desiredPos = target.position + baseOffset.normalized * clippedDistance;
+        }
+
+
+
+
 
         // Suavizado estable
         transform.position = Vector3.SmoothDamp(transform.position, desiredPos, ref velocity, smoothTime);
