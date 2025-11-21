@@ -14,9 +14,6 @@ public class CupSlot : MonoBehaviour
 
     public void RemoveCup()
     {
-        if (mesaPuzzle != null && mesaPuzzle.IsPuzzleSolved())
-            return;
-
         if (currentCup != null)
         {
             currentCup.transform.SetParent(null);
@@ -24,6 +21,7 @@ public class CupSlot : MonoBehaviour
             Rigidbody rb = currentCup.GetComponent<Rigidbody>();
             if (rb != null) rb.isKinematic = false;
 
+            // Al sacar → capa Grabbable
             currentCup.gameObject.layer = LayerMask.NameToLayer("Grabbable");
 
             currentCup = null;
@@ -32,33 +30,26 @@ public class CupSlot : MonoBehaviour
 
     public void PlaceCup(Cup cup)
     {
-        if (mesaPuzzle != null && mesaPuzzle.IsPuzzleSolved())
-            return;
-
         currentCup = cup;
-
-        // Aseguramos que el vaso se coloque limpio
         cup.transform.SetParent(transform);
         cup.transform.localPosition = Vector3.zero;
         cup.transform.localRotation = Quaternion.identity;
 
-        // Desactivamos física para que no se caiga ni se incline
         Rigidbody rb = cup.GetComponent<Rigidbody>();
         if (rb != null)
         {
             rb.isKinematic = true;
-            rb.useGravity = false; // ← agregalo si no lo tenías
+            rb.useGravity = false;
         }
 
-        // Opcional: aseguramos que el layer no interfiera
-        cup.gameObject.layer = LayerMask.NameToLayer("Grabbable");
+        // En slot → capa Default
+        cup.gameObject.layer = LayerMask.NameToLayer("Default");
 
-        // Validamos el puzzle
         if (mesaPuzzle != null)
-        {
             mesaPuzzle.CheckPuzzle();
-        }
     }
+
+    
     public void SetIndicadorVisual(bool activo)
     {
         if (indicadorVisual != null)
