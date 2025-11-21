@@ -44,15 +44,23 @@ public class MesaPuzzle : MonoBehaviour
             Debug.Log($"[MesaPuzzle] Slot {i}: actual={actualID}, esperado={esperadoID}");
 
             if (actualID != esperadoID)
+            {
+                // Si algún ID no coincide, se corta la validación
                 return;
+            }
         }
 
+        // ✅ Si llegó hasta acá, todos los slots están correctos
         puzzleSolved = true;
+        Debug.Log("[MesaPuzzle] Puzzle resuelto correctamente.");
+
+        // Acción de recompensa
         SpawnPolaroid();
 
         if (puertaParaDesbloquear != null)
             puertaParaDesbloquear.UnlockDoor();
 
+        // Bloqueamos interacción con las tazas ya colocadas
         foreach (var slot in slots)
         {
             if (slot.currentCup != null)
@@ -65,6 +73,7 @@ public class MesaPuzzle : MonoBehaviour
             }
         }
 
+        // Avisamos al PuzzleManager
         PuzzleManager.Instance.PuzzleResuelto("Puzzle_Mesa");
     }
 
