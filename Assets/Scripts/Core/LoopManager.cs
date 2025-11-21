@@ -7,6 +7,10 @@ public class LoopManager : MonoBehaviour
     public TimeManager timeManager; // Referencia al TimeManager
     public PlayerReturnManager playerReturnManager; // Referencia al PlayerReturnManager
 
+    [Header("SFX Settings")]
+    [Tooltip("Duración en segundos durante la cual los SFX estarán silenciados al iniciar un loop")]
+    public float sfxDelayOnLoopStart = 8f;
+
     public void StartNewLoop(bool isFirstPuzzle = false)
     {
         if (currentLoop < maxLoops)
@@ -14,6 +18,8 @@ public class LoopManager : MonoBehaviour
             currentLoop++;
             Debug.Log($"Iniciando loop {currentLoop}");
             MetricManager.Instance.RegistrarEvento("LoopIniciado", currentLoop);
+
+            // Silencia SFX temporalmente para evitar que todos suenen al reiniciar el loop            
 
             if (!isFirstPuzzle)
             {
@@ -41,6 +47,10 @@ public class LoopManager : MonoBehaviour
                             obj.ResetObject();
                         }
                     }
+                    if (AudioManager.Instance != null)
+                    {
+                        AudioManager.Instance.DisableSFXTemporarily(sfxDelayOnLoopStart);
+                    }
                 }));
             }
 
@@ -49,7 +59,6 @@ public class LoopManager : MonoBehaviour
             {
                 timeManager.StartLoopTimer();
             }
-            AudioManager.Instance.HabilitarSFXConDelay();
         }
         else
         {

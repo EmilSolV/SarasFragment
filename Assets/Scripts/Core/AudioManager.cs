@@ -42,7 +42,7 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         PlayMusic(backgroundMusic);
-        StartCoroutine(HabilitarSFXConDelay());
+        DisableSFXTemporarily(4f);
     }
 
     public void PlayMusic(AudioClip clip, float volume = 1f)
@@ -62,10 +62,15 @@ public class AudioManager : MonoBehaviour
         sfxSource.PlayOneShot(clip, volume);
     }
 
-    public IEnumerator HabilitarSFXConDelay()
+    public void DisableSFXTemporarily(float seconds = 4f)
+    {
+        StartCoroutine(DisableSFXCoroutine(seconds));
+    }
+
+    private IEnumerator DisableSFXCoroutine(float seconds)
     {
         sfxEnabled = false;
-        yield return new WaitForSeconds(4f); // Espera 2 segundos
+        yield return new WaitForSeconds(seconds);
         sfxEnabled = true;
     }
 }
