@@ -51,7 +51,7 @@ public class CupSlot : MonoBehaviour
         }
 
         // Opcional: aseguramos que el layer no interfiera
-        cup.gameObject.layer = LayerMask.NameToLayer("Default");
+        cup.gameObject.layer = LayerMask.NameToLayer("Grabbable");
 
         // Validamos el puzzle
         if (mesaPuzzle != null)
