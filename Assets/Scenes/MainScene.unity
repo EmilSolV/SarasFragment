@@ -1009,6 +1009,7 @@ MonoBehaviour:
   timeManager: {fileID: 188297769}
   playerReturnManager: {fileID: 761214930}
   sfxDelayOnLoopStart: 8
+  dialogDuration: 5
 --- !u!65 &65372239
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1118,6 +1119,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 840f31a2ae523e4449833c87ddbc2b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MetricManager
+--- !u!1 &68473054 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4882731272496866202, guid: 7d2cc0a0f4af89449bd0d4d638b2b73d, type: 3}
+  m_PrefabInstance: {fileID: 614820129}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &73888218
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13977,6 +13983,11 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1 &551958827 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4882731272496866202, guid: 7d2cc0a0f4af89449bd0d4d638b2b73d, type: 3}
+  m_PrefabInstance: {fileID: 195750393}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &553433715
 GameObject:
   m_ObjectHideFlags: 0
@@ -46167,13 +46178,13 @@ MonoBehaviour:
   salaFinalSpawnPoint: {fileID: 507425060}
   polaroids:
   - puzzleID: Puzzle_1
-    polaroid: {fileID: 0}
+    polaroid: {fileID: 1671676865}
   - puzzleID: Puzzle_2
-    polaroid: {fileID: 0}
+    polaroid: {fileID: 1914541000}
   - puzzleID: Puzzle_3
-    polaroid: {fileID: 0}
+    polaroid: {fileID: 68473054}
   - puzzleID: Puzzle_4
-    polaroid: {fileID: 0}
+    polaroid: {fileID: 551958827}
   eleccionSospechososUI: {fileID: 1106861289}
   tiempoObservacion: 40
   player: {fileID: 761214930}
@@ -46890,6 +46901,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.7510942, y: 2.5979753, z: 2.0831943}
   m_Center: {x: -0.00000047683716, y: 0.00000011920929, z: -0.0000009536743}
+--- !u!1 &1671676865 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8975768456057441779, guid: ac42eb83cf8219d48a33b1ae78a775d5, type: 3}
+  m_PrefabInstance: {fileID: 73888218}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1672568271
 GameObject:
   m_ObjectHideFlags: 0
@@ -50869,6 +50885,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HighlightEffect
   highlightColor: {r: 1, g: 1, b: 1, a: 1}
   highlightAlpha: 0.5
+--- !u!1 &1914541000 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 170020369160298346, guid: f5d61bac9777cb14ba0513e50cf2ada5, type: 3}
+  m_PrefabInstance: {fileID: 1696045612}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1923154586
 GameObject:
   m_ObjectHideFlags: 0

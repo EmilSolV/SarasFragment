@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RoomMessageTrigger : MonoBehaviour
+public class FinalMessageTrigger : MonoBehaviour
 {
     [TextArea]
     public string message = "Aquí es donde pondria un segundo puzzle, si tuviera uno... Gracias por jugar! :)";
