@@ -62,7 +62,7 @@ public class AudioManager : MonoBehaviour
         sfxSource.PlayOneShot(clip, volume);
     }
 
-    private IEnumerator HabilitarSFXConDelay()
+    public IEnumerator HabilitarSFXConDelay()
     {
         sfxEnabled = false;
         yield return new WaitForSeconds(4f); // Espera 2 segundos

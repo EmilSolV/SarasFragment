@@ -17,27 +17,31 @@ public class LoopManager : MonoBehaviour
 
             if (!isFirstPuzzle)
             {
-                // Reinicia la posición del jugador
-                PlayerReturnData.returnPosition = PlayerReturnData.initialPosition;
-                if (playerReturnManager != null)
+                StartCoroutine(LoopTransitionManager.Instance.DoTransition(() =>
                 {
-                    playerReturnManager.MoveToReturnPosition();
-                }
-
-                BookshelfPuzzle puzzle = FindObjectOfType<BookshelfPuzzle>();
-                if (puzzle != null && !puzzle.IsPuzzleSolved()) // Solo si el puzzle no está resuelto
-                {
-                    puzzle.ResetPuzzle();
-                }
-
-                Grabbable[] interactables = FindObjectsOfType<Grabbable>();
-                foreach (var obj in interactables)
-                {
-                    if (obj.resetOnLoop)
+                
+                    // Reinicia la posición del jugador
+                    PlayerReturnData.returnPosition = PlayerReturnData.initialPosition;
+                    if (playerReturnManager != null)
                     {
-                        obj.ResetObject();
+                        playerReturnManager.MoveToReturnPosition();
                     }
-                }
+
+                    BookshelfPuzzle puzzle = FindObjectOfType<BookshelfPuzzle>();
+                    if (puzzle != null && !puzzle.IsPuzzleSolved()) // Solo si el puzzle no está resuelto
+                    {
+                        puzzle.ResetPuzzle();
+                    }
+
+                    Grabbable[] interactables = FindObjectsOfType<Grabbable>();
+                    foreach (var obj in interactables)
+                    {
+                        if (obj.resetOnLoop)
+                        {
+                            obj.ResetObject();
+                        }
+                    }
+                }));
             }
 
             // Reinicia el timer
@@ -45,6 +49,7 @@ public class LoopManager : MonoBehaviour
             {
                 timeManager.StartLoopTimer();
             }
+            AudioManager.Instance.HabilitarSFXConDelay();
         }
         else
         {

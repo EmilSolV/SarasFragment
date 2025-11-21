@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator ShowInitialDialog()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(10f);
 
         yield return DialogManager.Instance.ShowAndWait("Bienvenido a Sara's Fragments", 4f);
 
