@@ -796,7 +796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   videoPlayer: {fileID: 1848397534}
-  nextSceneName: MainScene
+  nextSceneName: Prologo
 --- !u!4 &1672340767
 Transform:
   m_ObjectHideFlags: 0
