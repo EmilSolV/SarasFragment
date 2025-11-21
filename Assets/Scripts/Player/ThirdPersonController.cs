@@ -163,8 +163,15 @@ namespace StarterAssets
         {
             _hasAnimator = TryGetComponent(out _animator);
 
-            //JumpAndGravity();
-            //GroundedCheck();
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                return;
+                
+                // No hacer nada → tecla anulada
+            }
+
+            JumpAndGravity();
+            GroundedCheck();
             Move();
         }
 
@@ -177,8 +184,8 @@ namespace StarterAssets
         {
             _animIDSpeed = Animator.StringToHash("Speed");
             _animIDGrounded = Animator.StringToHash("Grounded");
-            _animIDJump = Animator.StringToHash("Jump");
-            _animIDFreeFall = Animator.StringToHash("FreeFall");
+           // _animIDJump = Animator.StringToHash("Jump");
+            //_animIDFreeFall = Animator.StringToHash("FreeFall");
             _animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
         }
 

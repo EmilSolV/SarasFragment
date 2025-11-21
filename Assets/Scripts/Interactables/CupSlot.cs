@@ -36,11 +36,11 @@ public class CupSlot : MonoBehaviour
         cup.transform.localRotation = Quaternion.identity;
 
         Rigidbody rb = cup.GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            rb.isKinematic = true;
-            rb.useGravity = false;
-        }
+        //if (rb != null)
+        //{
+          //  rb.isKinematic = true;
+            //rb.useGravity = false;
+        //}
 
         // En slot → capa Default
         cup.gameObject.layer = LayerMask.NameToLayer("Default");
