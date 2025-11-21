@@ -1,5 +1,5 @@
 using UnityEngine;
-using TMPro;
+using TextMeshProUGUI = TMPro.TextMeshProUGUI;
 
 public class BañoPuzzleController : MonoBehaviour
 {
@@ -18,24 +18,7 @@ public class BañoPuzzleController : MonoBehaviour
     private bool duchaActivada = false;
     private bool puzzleActivado = false;
 
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit, distanciaInteraccion))
-            {
-                if (hit.collider.CompareTag("Ducha"))
-                {
-                    ActivarDuchaSegunEstado();
-                }
-            }
-        }
-    }
-
-    private void ActivarDuchaSegunEstado()
+    private System.Collections.IEnumerator ActivarDuchaSegunEstado()
     {
         if (!puzzleActivado)
         {
@@ -52,7 +35,10 @@ public class BañoPuzzleController : MonoBehaviour
                 }
                 else
                 {
-                    DialogManager.Instance.ShowMessage("Mmm... el agua fría no parece servir de mucho.", 5f);
+                    DialogManager.Instance.ShowMessage("Mmm... el agua fría no parece servir de mucho. Mejor la cierro.", 5f);
+                    yield return new WaitForSeconds(5f);
+                    duchaAudioSource?.Stop();
+                    duchaActivada = false;
                 }
             }
             else
@@ -60,7 +46,7 @@ public class BañoPuzzleController : MonoBehaviour
                 // Apagar la ducha si aún no está el puzzle resuelto
                 duchaAudioSource?.Stop();
                 duchaActivada = false;
-                DialogManager.Instance.ShowMessage("Mejor así, estaba gastando agua...", 5f);
+                DialogManager.Instance.ShowMessage("Mejor así, estaba gastando agua.", 5f);
             }
         }
         else
@@ -72,7 +58,7 @@ public class BañoPuzzleController : MonoBehaviour
                 duchaActivada = true;
             }
 
-            DialogManager.Instance.ShowMessage("Está trabada...", 5f);
+            DialogManager.Instance.ShowMessage("Está trabada.", 5f);
         }
     }
 
@@ -96,5 +82,22 @@ public class BañoPuzzleController : MonoBehaviour
         PuzzleManager.Instance.PuzzleResuelto("Puzzle_2");
 
         Debug.Log("Puzzle de baño resuelto");
+    }
+
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, distanciaInteraccion))
+            {
+                if (hit.collider.CompareTag("Ducha"))
+                {
+                    StartCoroutine(ActivarDuchaSegunEstado());
+                }
+            }
+        }
     }
 }

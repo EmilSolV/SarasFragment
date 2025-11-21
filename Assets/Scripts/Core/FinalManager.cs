@@ -72,7 +72,8 @@ public class FinalManager : MonoBehaviour
         if (eleccionSospechososUI != null)
             eleccionSospechososUI.SetActive(true);
 
-        DialogManager.Instance.ShowMessage("¿Quién lo hizo?", 5f);
+        DialogManager.Instance.ShowAndWait("Tengo que tomar una decisión, antes de sufrir otro ataque...", 5f);
+        DialogManager.Instance.ShowAndWait("¿Quién lo hizo? ¿Quién intentó matarme?", 5f);
 
         Debug.Log("🕵️‍♀️ Mostrar posibles sospechosos");
     }

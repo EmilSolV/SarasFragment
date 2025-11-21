@@ -24,7 +24,7 @@ public class DoorController : MonoBehaviour, IDoorInteractable
     {
         if (isLocked)
         {
-            DialogManager.Instance.ShowMessage("La puerta está bloqueada. Resuelve el puzzle para abrirla.", 3f);
+            DialogManager.Instance.ShowMessage("Aún no se abre. Debo tener que resolver algo aquí.", 3f);
             AudioManager.Instance.PlaySFX(AudioManager.Instance.doorLockedSound, 0.2f);
             return;
         }

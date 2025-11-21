@@ -4,7 +4,8 @@ public class Collectable : MonoBehaviour, IGrabbable
 {
     [TextArea]
     public string collectMessage = "Recuerdo recolectado: polaroid.\nEsto parece una foto de Sara peleando con alguien...";
-    public string doorMessage = "Eso se escuchó como una puerta desbloqueandose.";
+    //public string doorMessage = "Eso se escuchó como una puerta desbloqueandose.";
+    public string doorMessage = null;
 
     public virtual void OnGrab(Transform handPoint)
     {

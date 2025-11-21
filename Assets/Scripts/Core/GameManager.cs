@@ -16,13 +16,13 @@ public class GameManager : MonoBehaviour
 
     IEnumerator ShowInitialDialog()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(5f);
 
-        yield return DialogManager.Instance.ShowAndWait("Bienvenido a Sara's Fragments", 4f);
+        yield return DialogManager.Instance.ShowAndWait("Ugh... ¿Qué pasó?", 3f);
 
-        yield return DialogManager.Instance.ShowAndWait("Intenta resolver el puzzle de la habitación antes que se acabe el tiempo.", 5f);
+        yield return DialogManager.Instance.ShowAndWait("¿Estoy en casa?", 3f);
 
-        yield return DialogManager.Instance.ShowAndWait("Si se acaba deberás comenzarlo desde el principio.", 5f);
+        yield return DialogManager.Instance.ShowAndWait("No recuerdo nada...", 3f);
     }
 
 
