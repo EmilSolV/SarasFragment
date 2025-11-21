@@ -29,6 +29,6 @@ public class DrawerController : MonoBehaviour, IDrawerInteractable
     void Update()
     {
         drawerTransform.localPosition = Vector3.Lerp(drawerTransform.localPosition, targetPos, Time.deltaTime * openSpeed);
-        Debug.Log($"[DrawerController] Posición actual: {drawerTransform.localPosition}, objetivo: {targetPos}");
+        //Debug.Log($"[DrawerController] Posición actual: {drawerTransform.localPosition}, objetivo: {targetPos}");
     }
 }

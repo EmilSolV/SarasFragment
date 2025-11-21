@@ -12,6 +12,7 @@ public class CodigoNotebook : MonoBehaviour
     public string codigoCorrecto = "181222";
     public GameObject polaroid;       // objeto a revelar
     public Animator polaroidAnimator; // opcional, para animación al revelar
+    public DoorController puertaParaDesbloquear; // Asigna en el inspector
 
     private Button botonConfirmar;
     private bool resuelto = false;
@@ -63,6 +64,8 @@ public class CodigoNotebook : MonoBehaviour
             resuelto = true;
             SetFeedback("Código correcto");
             RevelarPolaroid();
+            puertaParaDesbloquear?.UnlockDoor();
+            PuzzleManager.Instance.PuzzleResuelto("Puzzle_3");
         }
         else
         {

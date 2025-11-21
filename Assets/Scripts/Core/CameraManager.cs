@@ -12,7 +12,7 @@ public class CameraManager : MonoBehaviour
 
     public Transform playerCameraTransform; // Referencia al transform de la cámara que se mueve
 
-    private bool isFirstPerson = false;
+    private bool isFirstPerson = true;
 
     void Start()
     {

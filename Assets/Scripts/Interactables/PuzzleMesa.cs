@@ -67,6 +67,7 @@ public class PuzzleMesa : MonoBehaviour
                 puzzleResuelto = true;
                 if (polaroidFinal != null)
                     polaroidFinal.SetActive(true);
+                PuzzleManager.Instance.PuzzleResuelto("Puzzle_4");
 
                 Debug.Log("✅ Puzzle resuelto, polaroid revelada!");
             }

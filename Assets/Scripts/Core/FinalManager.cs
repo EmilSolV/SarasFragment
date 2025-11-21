@@ -44,8 +44,10 @@ public class FinalManager : MonoBehaviour
         finalActivado = true;
 
         Debug.Log("✅ Evento final activado");
-
-        StartCoroutine(ProcesoFinal());
+        StartCoroutine(LoopTransitionManager.Instance.DoTransition(() =>
+        {
+            StartCoroutine(ProcesoFinal());
+        }));
     }
 
     private IEnumerator ProcesoFinal()
