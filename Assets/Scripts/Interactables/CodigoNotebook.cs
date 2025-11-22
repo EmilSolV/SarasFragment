@@ -1,4 +1,4 @@
-using TMPro;
+ï»¿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +11,7 @@ public class CodigoNotebook : MonoBehaviour
     [Header("Logica")]
     public string codigoCorrecto = "181222";
     public GameObject polaroid;       // objeto a revelar
-    public Animator polaroidAnimator; // opcional, para animación al revelar
+    public Animator polaroidAnimator; // opcional, para animaciÃ³n al revelar
     public DoorController puertaParaDesbloquear; // Asigna en el inspector
 
     private Button botonConfirmar;
@@ -19,12 +19,12 @@ public class CodigoNotebook : MonoBehaviour
 
     void Awake()
     {
-        // Buscar el botón automáticamente en hijos
+        // Buscar el botÃ³n automÃ¡ticamente en hijos
         botonConfirmar = transform.Find("BotonConfirmar")?.GetComponent<Button>();
         if (botonConfirmar != null)
             botonConfirmar.onClick.AddListener(Validar);
         else
-            Debug.LogWarning("No se encontró el botón Confirmar en hijos de " + gameObject.name);
+            Debug.LogWarning("No se encontrÃ³ el botÃ³n Confirmar en hijos de " + gameObject.name);
 
         if (inputCodigo != null)
             inputCodigo.onEndEdit.AddListener(OnEndEdit);
@@ -57,21 +57,28 @@ public class CodigoNotebook : MonoBehaviour
         if (resuelto) return;
 
         string valor = inputCodigo.text.Trim();
-        Debug.Log("Código ingresado: " + valor);
+        Debug.Log("CÃ³digo ingresado: " + valor);
 
         if (valor == codigoCorrecto)
         {
             resuelto = true;
-            SetFeedback("Código correcto");
+            SetFeedback("CÃ³digo correcto");
             RevelarPolaroid();
             puertaParaDesbloquear?.UnlockDoor();
             PuzzleManager.Instance.PuzzleResuelto("Puzzle_3");
         }
         else
         {
-            SetFeedback("Código incorrecto");
+            SetFeedback("CÃ³digo incorrecto");
+
+            // Feedback visual
             var anim = GetComponent<Animator>();
             if (anim) anim.SetTrigger("Shake");
+
+            // ðŸ”§ Resetear campo para reintentar
+            inputCodigo.text = "";
+            inputCodigo.ActivateInputField();
+            inputCodigo.Select();
         }
     }
 
@@ -89,7 +96,7 @@ public class CodigoNotebook : MonoBehaviour
         if (textoFeedback != null)
         {
             textoFeedback.text = msg;
-            textoFeedback.color = (msg == "Código correcto") ? Color.green : Color.red;
+            textoFeedback.color = (msg == "CÃ³digo correcto") ? Color.green : Color.red;
         }
     }
 }
