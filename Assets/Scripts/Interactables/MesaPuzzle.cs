@@ -74,7 +74,7 @@ public class MesaPuzzle : MonoBehaviour
         }
 
         // Avisamos al PuzzleManager
-        PuzzleManager.Instance.PuzzleResuelto("Puzzle_Mesa");
+        PuzzleManager.Instance.PuzzleResuelto("Puzzle_4");
     }
 
     public void ResetPuzzle()

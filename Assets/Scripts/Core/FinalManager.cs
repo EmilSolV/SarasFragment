@@ -56,6 +56,8 @@ public class FinalManager : MonoBehaviour
         if (player != null && salaFinalSpawnPoint != null)
             player.ForceTeleport(salaFinalSpawnPoint.position);
 
+        DialogManager.Instance.ShowMessage("Ya no tengo más tiempo. Esto es lo que pude recordar.", 5f);
+
         // Mostrar solo polaroids correspondientes
         foreach (var p in polaroids)
         {
