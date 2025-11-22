@@ -9,10 +9,14 @@ public class DecisionFinalManager : MonoBehaviour
 
     void Start()
     {
+        // Desbloquear y mostrar el cursor para poder hacer click en los botones
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        
         // Reproducir música principal
         if (AudioManager.Instance != null && AudioManager.Instance.backgroundMusic != null)
         {
-            AudioManager.Instance.PlayMusic(AudioManager.Instance.backgroundMusic, 0.5f);
+            AudioManager.Instance.PlayMusic(AudioManager.Instance.backgroundMusic, 0.2f);
             Debug.Log("🎵 Reproduciendo música principal en DecisionFinal");
         }
 
@@ -51,5 +55,12 @@ public class DecisionFinalManager : MonoBehaviour
         ));
 
         Debug.Log("Diálogos iniciales completados");
+    }
+
+    void OnDestroy()
+    {
+        // Opcional: restaurar el estado del cursor si vuelves a una escena con movimiento
+        // Cursor.lockState = CursorLockMode.Locked;
+        // Cursor.visible = false;
     }
 }

@@ -640,7 +640,7 @@ MonoBehaviour:
     Emi no era la culpable. Mejor suerte para la pr\xF3xima."
   resultMessageDuration: 8
   credits:
-  - text: SARA'S FRAGMENT
+  - text: SARA'S FRAGMENTS
     duration: 3
   - text: 'Un juego desarrollado por:'
     duration: 3
@@ -1846,6 +1846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogManager
   dialogText: {fileID: 1413206695}
+  showDebugInfo: 0
 --- !u!4 &1952704060
 Transform:
   m_ObjectHideFlags: 0
