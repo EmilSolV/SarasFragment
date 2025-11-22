@@ -506,7 +506,7 @@ GameObject:
   - component: {fileID: 1413206696}
   - component: {fileID: 1413206695}
   m_Layer: 5
-  m_Name: Dialogs
+  m_Name: DialogText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -821,6 +821,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1952704060}
   - component: {fileID: 1952704059}
+  - component: {fileID: 1952704061}
   m_Layer: 0
   m_Name: DialogManager
   m_TagString: Untagged
@@ -835,12 +836,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1952704058}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 14e0a4e36f31ebb4280303b46b14668f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogManager
   dialogText: {fileID: 1413206695}
+  showDebugInfo: 0
 --- !u!4 &1952704060
 Transform:
   m_ObjectHideFlags: 0
@@ -856,6 +858,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1952704061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952704058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f48388679cbec4bb03358b75913b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogManagerSimple
+  dialogText: {fileID: 1413206695}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

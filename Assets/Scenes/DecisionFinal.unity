@@ -1353,7 +1353,7 @@ GameObject:
   - component: {fileID: 1413206696}
   - component: {fileID: 1413206695}
   m_Layer: 5
-  m_Name: Dialogs
+  m_Name: DialogText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
