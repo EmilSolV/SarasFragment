@@ -9,13 +9,34 @@ public class Collectable : MonoBehaviour, IGrabbable
 
     public virtual void OnGrab(Transform handPoint)
     {
-        // Mostrar mensaje de recuerdo
-        DialogManager.Instance.ShowAndWait(collectMessage, 4f);
-        DialogManager.Instance.ShowAndWait(doorMessage, 2f);
+        // Mostrar mensaje de recuerdo usando ShowMessage (no ShowAndWait)
+        if (DialogManager.Instance != null)
+        {
+            DialogManager.Instance.ShowMessage(collectMessage, 4f);
+            
+            // Si hay un mensaje de puerta, mostrarlo también
+            if (!string.IsNullOrEmpty(doorMessage))
+            {
+                // Iniciar corrutina para mostrar el segundo mensaje después del primero
+                StartCoroutine(ShowDoorMessageDelayed());
+            }
+        }
 
         // Desactivar o destruir la polaroid en el mundo
         gameObject.SetActive(false);
         // Alternativamente: Destroy(gameObject);
+    }
+
+    private System.Collections.IEnumerator ShowDoorMessageDelayed()
+    {
+        // Esperar a que termine el primer mensaje
+        yield return new UnityEngine.WaitForSeconds(4f);
+        
+        // Mostrar el segundo mensaje
+        if (DialogManager.Instance != null)
+        {
+            DialogManager.Instance.ShowMessage(doorMessage, 2f);
+        }
     }
 
     public virtual void OnDrop()
