@@ -5,6 +5,7 @@ using System.Collections;
 public class DialogManager : MonoBehaviour
 {
     public static DialogManager Instance { get; private set; }
+
     public TextMeshProUGUI dialogText;
 
     private Coroutine currentDialogCoroutine;
@@ -12,9 +13,14 @@ public class DialogManager : MonoBehaviour
     void Awake()
     {
         if (Instance == null)
+        {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
         else
+        {
             Destroy(gameObject);
+        }
     }
 
     // --- MÉTODO EXISTENTE (lo dejo igual) ---

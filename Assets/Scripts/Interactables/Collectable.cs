@@ -10,8 +10,8 @@ public class Collectable : MonoBehaviour, IGrabbable
     public virtual void OnGrab(Transform handPoint)
     {
         // Mostrar mensaje de recuerdo
-        DialogManager.Instance.ShowMessage(collectMessage, 6f);
-        DialogManager.Instance.ShowMessage(doorMessage, 5f);
+        DialogManager.Instance.ShowAndWait(collectMessage, 4f);
+        DialogManager.Instance.ShowAndWait(doorMessage, 2f);
 
         // Desactivar o destruir la polaroid en el mundo
         gameObject.SetActive(false);

@@ -1,6 +1,7 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FinalManager : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class FinalManager : MonoBehaviour
     public GameObject eleccionSospechososUI;
     public float tiempoObservacion = 5f;
     public PlayerReturnManager player;
+    public TimeManager timeManager;
+    public Camera playerCamera;
+    public string nextSceneName = "DecisionFinal";
+
 
     private bool finalActivado = false;
 
@@ -50,6 +55,11 @@ public class FinalManager : MonoBehaviour
         }));
     }
 
+    private void LoadNextScene()
+    {
+        SceneManager.LoadScene(nextSceneName);
+    }
+
     private IEnumerator ProcesoFinal()
     {
         // Mover al jugador al final
@@ -67,15 +77,16 @@ public class FinalManager : MonoBehaviour
 
         Debug.Log("🖼️ Mostrando recuerdos en la pared...");
 
+        timeManager.SetTimeRemaining(tiempoObservacion, true);
+
         // Espera para observar
         yield return new WaitForSeconds(tiempoObservacion);
 
         // Mostrar panel de sospechosos
-        if (eleccionSospechososUI != null)
-            eleccionSospechososUI.SetActive(true);
+        //if (eleccionSospechososUI != null)
+        //    eleccionSospechososUI.SetActive(true);
 
-        DialogManager.Instance.ShowAndWait("Tengo que tomar una decisión, antes de sufrir otro ataque...", 5f);
-        DialogManager.Instance.ShowAndWait("¿Quién lo hizo? ¿Quién intentó matarme?", 5f);
+        LoadNextScene();
 
         Debug.Log("🕵️‍♀️ Mostrar posibles sospechosos");
     }
